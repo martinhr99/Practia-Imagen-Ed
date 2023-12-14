@@ -33,6 +33,12 @@ class Imagen{
     ~Imagen();
 
     //set y get
+    int getnum_filas()const;
+
+    int getnum_cols()const;
+
+    Pixel getdata(int i, int j)const;
+
     Pixel & operator ()(int i,int j);
 
     const Pixel & operator ()(int i,int j)const;
@@ -43,12 +49,8 @@ class Imagen{
 
     void LimpiarTransp();
 
-    int num_filas()const;
-
-    int num_cols()const;
-
     void PutImagen(int posi,int posj, const Imagen &I,Tipo_Pegado tippegado=OPACO);
-    
+
     Imagen ExtraeImagen(int posi,int posj,int dimi,int dimj);
 
 }; 

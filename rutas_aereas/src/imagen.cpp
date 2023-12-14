@@ -5,8 +5,32 @@
 
 using namespace std;
 
-void Imagen::Borrar(){}
-void Imagen::Copiar(const Imagen &I){}
+void Imagen::Borrar(){
+
+    for(int i=0; i<nf; i++){
+        delete[] data[i];
+    }
+    delete[] data;
+
+}
+void Imagen::Copiar(const Imagen &I){
+
+    this->nf=I.getnum_filas();
+    this->nc=I.getnum_cols();
+
+    data= new Pixel*[nf];
+
+    for(int i=0; i<nf; i++){
+
+        data[i]=new Pixel[nc];
+
+        for(int j=0; j<nc; j++){
+
+            data[i][j]=I.getdata(i,j);
+
+        }
+    }
+}
 
 Imagen::Imagen(){
     nf=0;
@@ -30,22 +54,39 @@ Imagen::Imagen(int f,int c){
         data[i][j].transp=255;
     }
   }  
-
-
 }
 
-Imagen::Imagen(const Imagen & I){}
+Imagen::Imagen(const Imagen & I){
+    this->Copiar(I);
+}
 
-Imagen & Imagen::operator=(const Imagen & I){}
+Imagen & Imagen::operator=(const Imagen & I){
+    if(this != &I){
+        Borrar();
+        Copiar(I);
+    }
 
-Imagen::~Imagen(){}
+    return *this;
+}
 
-//set y get
-Pixel & Imagen::operator ()(int i,int j){}
+Imagen::~Imagen(){
+    Borrar();
+}
+
+//  !!!! SE HA MODIFICADO EL MÉTODO num_filas y num_col POR getnum_filas y getnum_cols, POR MERA COSTUMBRE DE LLLAMR A LOS METODOS GETER Y SETER!!!!!!
+
+int Imagen::getnum_filas()const{return nf;}
+int Imagen::getnum_cols()const{return nc;}
+Pixel Imagen::getdata(int i, int j)const{return data[i][j];}
+
+Pixel & Imagen::operator ()(int i,int j){
+    assert(i>=0 && i<nf && j>=0 && j<nc);
+    return data[i][j];
+}
 
 const Pixel & Imagen::operator()(int i,int j)const{
-  assert(i>=0 && i<nf && j>=0 && j<nc);
-  return data[i][j];
+    assert(i>=0 && i<nf && j>=0 && j<nc);
+    return data[i][j];
 }
 
 void Imagen::EscribirImagen(const char * nombre){
@@ -126,9 +167,17 @@ void Imagen::LeerImagen(const char * nombre,const string &nombremascara){
 }
 
 
-void LimpiarTransp();
-int Imagen::num_filas()const{return nf;}
-int Imagen::num_cols()const{return nc;}
+void Imagen::LimpiarTransp(){
+    for(int i=0; i<nf; i++){
+        for(int j=0; j<nc; j++){
+            if(data[i][j].transp!=0){
+                data[i][j].transp=0;
+            }
+        }
+    }
+    
+}
+
 
 
 void Imagen::PutImagen(int posi,int posj, const Imagen &I,Tipo_Pegado tippegado){
@@ -153,7 +202,18 @@ void Imagen::PutImagen(int posi,int posj, const Imagen &I,Tipo_Pegado tippegado)
     }
 }
 
-Imagen ExtraeImagen(int posi,int posj,int dimi,int dimj);
+//No esta muy clara cuál es la funcionaleidad de este método
+Imagen Imagen::ExtraeImagen(int posi,int posj,int dimi,int dimj){
+    Imagen I(dimi,dimj);
+
+    for(int i=posi; i<nf; i++){
+        for(int j=posj; j<nc; j++){
+            I.data[i][j]=data[i][j];
+        }
+
+    }
+    return I;
+}
 
 
 
