@@ -3,6 +3,7 @@
 #include "Pais.h"
 #include <set>
 #include <iostream>
+#include <iterator>
 
 
 using namespace std;

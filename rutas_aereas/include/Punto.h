@@ -10,8 +10,7 @@ class Punto {
     private:
 
     double latitud;
-    double longitud;
-    
+    double longitud; 
 
     public:
 
@@ -20,6 +19,9 @@ class Punto {
     Punto (const Punto &p);
     double getLatitud() const;
     double getLongitud() const;
+    void setLatitud(double lt);
+    void setLongitud(double lg);
+    //sobre carge de menor
     bool operator ==(const Punto&p)const;
 
     friend istream &operator>>(istream &is, Punto &p);
@@ -28,7 +30,6 @@ class Punto {
 
 };
 
-istream &operator>>(istream &is, Punto &p);
-ostream &operator<<(ostream &os, const Punto &p);
+
 
 #endif

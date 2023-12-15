@@ -27,26 +27,32 @@ using namespace std;
     double Punto::getLongitud()const{
         return longitud;
     }
+    void Punto::setLatitud(double lt){
+        latitud=lt;
+    }
+    void Punto::setLongitud(double lg){
+        longitud=lg;
+    }
     bool Punto::operator ==(const Punto&p)const{
         return ((this->getLatitud()== p.getLatitud()) && (this->getLongitud() == p.getLongitud()));
     }
 
 
 
-  istream &operator>>(istream &is, Punto&p){
-  double lt, log;
-  char parentesis1, coma, parentesis2;
+    istream &operator>>(istream &is, Punto&p){
+        double lt, log;
+        char parentesis1, coma, parentesis2;
 
-  is >> parentesis1 >> lt >> coma >> log >> parentesis2;
+        is >> parentesis1 >> lt >> coma >> log >> parentesis2;
 
-  p = Punto(lt, log);
+        p = Punto(lt, log);
 
-  return is;
-}
+        return is;
+    }
 
-ostream &operator<<(ostream &os, const Punto &p) {
-    
-  os << "(" << p.latitud << "," << p.longitud << ")";
+    ostream &operator<<(ostream &os, const Punto &p) {
+        
+        os << "(" << p.latitud << "," << p.longitud << ")";
 
-  return os;
-}
+        return os;
+    }

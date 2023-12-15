@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "list": "cpp",
+        "__hash_table": "cpp",
+        "__tree": "cpp",
+        "deque": "cpp"
+    }
+}
