@@ -36,7 +36,7 @@ class Ruta{
                 iterator &operator--();
                 bool operator==(const iterator &it);
                 bool operator!=(const iterator &it);
-                const Ruta &operator*()const;
+                const Punto &operator*()const;
          
                 friend class Ruta;
                 friend class const_iterator;
@@ -53,7 +53,7 @@ class Ruta{
                 const_iterator &operator--();
                 bool const_iterator::operator==(const const_iterator &it);
                 bool const_iterator::operator!=(const const_iterator &it);
-                const Ruta &const_iterator::operator*()const;   
+                const Punto &const_iterator::operator*()const;   
                 friend class Ruta;
         
 
@@ -62,7 +62,7 @@ class Ruta{
         iterator begin();
         const_iterator begin()const;
         iterator end();
-        const_iterator end()const;
+        const_iterator cend()const;
         iterator find(const Punto & p);
         friend istream &operator >>(istream &is, Ruta & R);
         friend ostream &operator<<(ostream & os, Ruta & R);

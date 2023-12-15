@@ -1,4 +1,7 @@
 #include "ruta.h"
+#include <iterator>
+
+
 
 using namespace std;
 
@@ -9,11 +12,17 @@ Ruta::Ruta(){
 }
 
 void Ruta::Insertar(const Punto &n){
-    puntos.insert(n);
+
+    puntos.push_back(n);
+
 }
 void Ruta::Borrar(const Punto & n){
 
-    puntos.erase(n);
+    for(auto i=puntos.begin(); i!=puntos.end(); i++){
+        if(*i==n){
+            puntos.erase(i);
+        }
+    }
     
 }
 
@@ -29,7 +38,7 @@ bool Ruta::operator==(const Ruta & R )const{
     if(puntos.size()!= R.puntos.size()) return false;
     else{
         
-        for (auto i=puntos.begin(); i<puntos.end(); i++){
+        for (auto i=puntos.begin(); i!=puntos.end(); i++){
 
         }
     }
@@ -49,7 +58,7 @@ Ruta::iterator &Ruta::iterator::operator--(){
     return *this;
 }
 
-const Ruta &Ruta::iterator::operator*()const{
+const Punto &Ruta::iterator::operator*()const{
     return *p;
 }
 
@@ -80,7 +89,7 @@ bool Ruta::const_iterator::operator==(const const_iterator &it){
 bool Ruta::const_iterator::operator!=(const const_iterator &it){
     return !(it.p==p);
 }
-const Ruta &Ruta::const_iterator::operator*()const{
+const Punto &Ruta::const_iterator::operator*()const{
     return *p;
 } 
 
@@ -102,17 +111,23 @@ Ruta::iterator Ruta::end(){
     it.p = puntos.end();
     return it;
 }
-Ruta::const_iterator Ruta::end()const{
+Ruta::const_iterator Ruta::cend()const{
     const_iterator it;
     it.p = puntos.end();
     return it;
 }
 Ruta::iterator Ruta::find(const Punto & p){
+    
     iterator it;
-    list<Ruta>::iterator i;
-    for (i=puntos.begin(); i!=puntos.end() && !((*i)==p);++i);
-        it.p=i;
+    list<Punto>::iterator i;
+    for ( auto i=puntos.begin(); i!=puntos.end();++i) {
+        if(*i == p){
+            it.p=i;
+        }
+        
+    } 
     return it;
+    
 }
 istream &operator >>(istream &is, Ruta & R){}
 ostream &operator<<(ostream & os, Ruta & R){}
