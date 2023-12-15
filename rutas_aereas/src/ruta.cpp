@@ -9,16 +9,11 @@ Ruta::Ruta(){
 }
 
 void Ruta::Insertar(const Punto &n){
-    puntos.insert(++puntos.end(), n);
+    puntos.insert(n);
 }
 void Ruta::Borrar(const Punto & n){
-    iterator it=puntos.begin();
-    
-    for(auto i=it; i<puntos.end(); i++){
-        if(*it==n){
-            puntos.erase(it);
-        }
-    }
+
+    puntos.erase(n);
     
 }
 
@@ -42,42 +37,85 @@ bool Ruta::operator==(const Ruta & R )const{
     if(this->code != R.getCode()) return false;
     
 }
-bool operator<(const Ruta &R )const;
+bool Ruta::operator<(const Ruta &R )const{}
 
-        Ruta::list<Punto>::iterator &Ruta::iterator::operator++(){
-            ++p;
-            return *this;
-        }
+Ruta::iterator &Ruta::iterator::operator++(){
+    ++p;
+    return *this;
+}
 
-        Ruta::iterator &Ruta::iterator::operator--(){
-            --p;
-            return *this;
-        }
+Ruta::iterator &Ruta::iterator::operator--(){
+    --p;
+    return *this;
+}
 
-         const Pais &Paises::iterator::operator*()const{
-            return *p;
-        }
+const Ruta &Ruta::iterator::operator*()const{
+    return *p;
+}
 
 
-        bool Paises::iterator::operator==(const Paises::iterator &it){
-            return it.p == p;
-        }
+bool Ruta::iterator::operator==(const Ruta::iterator &it){
+    return it.p == p;
+}
 
-        bool Paises::iterator::operator!=(const Paises::iterator &it){
-            return !(it.p==p);
-        }
+bool Ruta::iterator::operator!=(const Ruta::iterator &it){
+    return !(it.p==p);
+}
 
-        class const_iterator{
-            private: 
-                list<Punto>::const_iterator p;
-            public:
+Ruta::const_iterator &Ruta::const_iterator::operator=(const Ruta::iterator &it){
+    p=it.p;
+    return *this;
+}
+Ruta::const_iterator &Ruta::const_iterator::operator++(){
+    ++p; 
+    return *this;
+}
+Ruta::const_iterator &Ruta::const_iterator::operator--(){
+    --p; 
+    return *this;
+}
+bool Ruta::const_iterator::operator==(const const_iterator &it){
+    return it.p == p;
+}
+bool Ruta::const_iterator::operator!=(const const_iterator &it){
+    return !(it.p==p);
+}
+const Ruta &Ruta::const_iterator::operator*()const{
+    return *p;
+} 
 
-        };
-        iterator begin();
-        const_iterator begin()const;
-        iterator end();
-        const_iterator end()const;
-        iterator find(const Punto & p);
-        friend istream &operator >>(istream &is, Ruta & R);
-        friend ostream &operator<<(ostream & os, Ruta & R);
-        
+
+
+
+Ruta::iterator Ruta::begin(){
+    iterator it;
+    it.p = puntos.begin();
+    return it;
+}
+Ruta::const_iterator Ruta::begin()const{
+    const_iterator it;
+    it.p = puntos.begin();
+    return it;
+}
+Ruta::iterator Ruta::end(){
+    iterator it;
+    it.p = puntos.end();
+    return it;
+}
+Ruta::const_iterator Ruta::end()const{
+    const_iterator it;
+    it.p = puntos.end();
+    return it;
+}
+Ruta::iterator Ruta::find(const Punto & p){
+    iterator it;
+    list<Ruta>::iterator i;
+    for (i=puntos.begin(); i!=puntos.end() && !((*i)==p);++i);
+        it.p=i;
+    return it;
+}
+istream &operator >>(istream &is, Ruta & R){}
+ostream &operator<<(ostream & os, Ruta & R){}
+
+
+

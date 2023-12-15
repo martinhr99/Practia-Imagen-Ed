@@ -5,6 +5,7 @@
 #include <string>
 #include <list>
 #include <iterator>
+#include <iostream>
 
 using namespace std;
 class Ruta{
@@ -17,6 +18,7 @@ class Ruta{
     public: 
 
         Ruta();
+
         void Insertar(const Punto &n);
         void Borrar(const Punto & n);
         string getCode()const;
@@ -24,11 +26,20 @@ class Ruta{
         bool operator==(const Ruta & R )const;
         bool operator<(const Ruta &R )const;
 
-        class iterrator{
+        class iterator{
             private:
                 list<Punto>::iterator p;
 
             public:
+
+                iterator &operator++();
+                iterator &operator--();
+                bool operator==(const iterator &it);
+                bool operator!=(const iterator &it);
+                const Ruta &operator*()const;
+         
+                friend class Ruta;
+                friend class const_iterator;
 
         };
 
@@ -36,8 +47,18 @@ class Ruta{
             private: 
                 list<Punto>::const_iterator p;
             public:
+                //const_iterator (const iterator &it);
+                const_iterator &operator=(const Ruta::iterator &it); 
+                const_iterator &operator++();
+                const_iterator &operator--();
+                bool const_iterator::operator==(const const_iterator &it);
+                bool const_iterator::operator!=(const const_iterator &it);
+                const Ruta &const_iterator::operator*()const;   
+                friend class Ruta;
+        
 
         };
+
         iterator begin();
         const_iterator begin()const;
         iterator end();
@@ -48,6 +69,6 @@ class Ruta{
 
 
 
-}
+};
 
 #endif
