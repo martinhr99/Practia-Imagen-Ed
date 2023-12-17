@@ -21,7 +21,7 @@ class Punto {
     double getLongitud() const;
     void setLatitud(double lt);
     void setLongitud(double lg);
-    //sobre carge de menor
+    bool operator <(const Punto &p)const;
     bool operator ==(const Punto&p)const;
 
     friend istream &operator>>(istream &is, Punto &p);

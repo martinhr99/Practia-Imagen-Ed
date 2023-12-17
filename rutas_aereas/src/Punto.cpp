@@ -36,6 +36,9 @@ using namespace std;
     bool Punto::operator ==(const Punto&p)const{
         return ((this->getLatitud()== p.getLatitud()) && (this->getLongitud() == p.getLongitud()));
     }
+    bool Punto::operator <(const Punto & p)const{
+        return((this->getLatitud()<p.getLatitud())&&(this->getLongitud() < p.getLongitud()));
+    }
 
 
 

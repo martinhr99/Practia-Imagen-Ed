@@ -17,8 +17,8 @@ void Ruta::Insertar(const Punto &n){
 
 }
 void Ruta::Borrar(const Punto & n){
-
-    for(auto i=puntos.begin(); i!=puntos.end(); i++){
+    list<Punto>::iterator i;
+    for(i=puntos.begin(); i!=puntos.end(); i++){
         if(*i==n){
             puntos.erase(i);
         }
@@ -35,18 +35,24 @@ void Ruta::setCode(const string &c){
 }
 
 bool Ruta::operator==(const Ruta & R )const{
-    if(puntos.size()!= R.puntos.size()) return false;
-    else{
-        
-        for (auto i=puntos.begin(); i!=puntos.end(); i++){
-
-        }
-    }
-
-    if(this->code != R.getCode()) return false;
+   return puntos==R.puntos;
     
 }
-bool Ruta::operator<(const Ruta &R )const{}
+bool Ruta::operator<(const Ruta & R )const{
+
+    list<Punto>::const_iterator it;
+    list<Punto>::const_iterator r;
+    it=puntos.begin();
+    r=R.puntos.begin();
+
+    //Suponemos que una ruta es menor que la otra si almenos un un punto es menor que el otro
+    for(; it!=puntos.end() && r!=R.puntos.end(); it++){
+
+        if(*it<*r) return true;
+
+    }
+
+}
 
 Ruta::iterator &Ruta::iterator::operator++(){
     ++p;
@@ -128,7 +134,9 @@ Ruta::iterator Ruta::find(const Punto & p){
     } 
     return it;
     
+    
 }
+
 istream &operator >>(istream &is, Ruta & R){}
 ostream &operator<<(ostream & os, Ruta & R){}
 
