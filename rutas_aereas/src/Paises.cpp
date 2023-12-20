@@ -89,7 +89,7 @@
             return it;
         }  
         
-        Paises::const_iterator Paises::begin()const{
+        Paises::const_iterator Paises::cbegin()const{
 
             const_iterator it;
             it.p = datos.begin();
@@ -103,7 +103,7 @@
             return it;
         }
 
-        Paises::const_iterator Paises::end()const{
+        Paises::const_iterator Paises::cend()const{
 
             const_iterator it;
             it.p = datos.end();
@@ -155,7 +155,7 @@
         
             Paises::const_iterator it;
 
-            for (it=R.begin(); it!=R.end(); ++it){
+            for (it=R.cbegin(); it!=R.cend(); ++it){
 
                 os<<*it<<"\t";
 

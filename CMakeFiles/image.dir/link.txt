@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libimage.a CMakeFiles/image.dir/rutas_aereas/src/imagen.cpp.o CMakeFiles/image.dir/rutas_aereas/src/imagenES.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libimage.a

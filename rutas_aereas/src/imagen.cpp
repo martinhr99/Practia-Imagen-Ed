@@ -15,8 +15,8 @@ void Imagen::Borrar(){
 }
 void Imagen::Copiar(const Imagen &I){
 
-    this->nf=I.getnum_filas();
-    this->nc=I.getnum_cols();
+    this->nf=I.num_filas();
+    this->nc=I.num_cols();
 
     data= new Pixel*[nf];
 
@@ -75,8 +75,8 @@ Imagen::~Imagen(){
 
 //  !!!! SE HA MODIFICADO EL MÉTODO num_filas y num_col POR getnum_filas y getnum_cols, POR MERA COSTUMBRE DE LLLAMR A LOS METODOS GETER Y SETER!!!!!!
 
-int Imagen::getnum_filas()const{return nf;}
-int Imagen::getnum_cols()const{return nc;}
+int Imagen::num_filas()const{return nf;}
+int Imagen::num_cols()const{return nc;}
 Pixel Imagen::getdata(int i, int j)const{return data[i][j];}
 
 Pixel & Imagen::operator ()(int i,int j){

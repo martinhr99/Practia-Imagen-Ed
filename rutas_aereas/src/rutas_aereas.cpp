@@ -1,32 +1,12 @@
 
-Como ayuda este fichero incluye parte del codigo que debéis desarrollar. 
+#include "imagen.h"
+#include "Almacen_Rutas.h"
+#include "Paises.h"
+#include <iostream>
+#include <cmath>
+#include <fstream>
 
-
-====================================================================
-
-
-========================================================================
-
-
-
-
-=========================================================================
-
-
-
-    
-}	
-
-/*********************************/
-
-
-
-/*********************************/
-
-
-  
-/*********************************/
-
+using namespace std;
 
 void Pintar( int f1,int f2,int c1,int c2,Imagen &I, const Imagen &avion,int mindisf,int mindisc){
       
@@ -64,7 +44,7 @@ void Pintar( int f1,int f2,int c1,int c2,Imagen &I, const Imagen &avion,int mind
       }
      
 }  
-  
+
 /** 
  * @brief Obtiene una nueva imagen que es la versión rotada de una imagen de entrada
  * @param Io: imagen de entrada
@@ -142,7 +122,7 @@ Imagen Rota(const Imagen & Io,double angulo){
 }
 
 int main(int argc, char * argv[]){
-  if (argc!=7){
+    if (argc!=7){
       cout<<"Los parametros son:"<<endl;
       cout<<"1.-Fichero con la informacion de los paises"<<endl;
       cout<<"2.-Nombre de la imagen con el mapa del mundo"<<endl;
@@ -151,32 +131,32 @@ int main(int argc, char * argv[]){
       cout<<"5.- Nombre de la imagen con el avion"<<endl;
       cout<<"6.- Nombre de la imagen de la mascara del avion"<<endl;
       
-      return 0;
-  }    
+      
+    }    
+
+    Paises Pses;
+    ifstream f (argv[1]);
+    f>>Pses;
+    //cout<<Pses;
+    Imagen I;
+    I.LeerImagen(argv[2]);
+
+    //Leemos los aviones 
+    Imagen avion;
+    avion.LeerImagen(argv[5],argv[6]);
+
+    Almacen_Rutas Ar;
+    f.close();
+    f.open (argv[4]);
+    f>>Ar;
+    cout<<"Las rutas: "<<endl<<Ar;
+    cout<<"Dime el codigo de una ruta"<<endl;
+    string a;
+    cin>>a;
+    Ruta R=Ar.GetRuta(a);
 
 
-Paises Pses;
-  ifstream f (argv[1]);
-  f>>Pses;
-  //cout<<Pses;
-  Imagen I;
-  I.LeerImagen(argv[2]);
-  
-  //Leemos los aviones 
-  Imagen avion;
-  avion.LeerImagen(argv[5],argv[6]);
-  
-  Almacen_Rutas Ar;
-  f.close();
-   f.open (argv[4]);
-  f>>Ar;
-  cout<<"Las rutas: "<<endl<<Ar;
-  cout<<"Dime el codigo de una ruta"<<endl;
-  string a;
-  cin>>a;
-  Ruta R=Ar.GetRuta(a);
-
-
-
-
+  //COMPLETAR
+    return 0;
+}
 

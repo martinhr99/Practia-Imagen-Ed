@@ -107,7 +107,7 @@ Ruta::iterator Ruta::begin(){
     it.p = puntos.begin();
     return it;
 }
-Ruta::const_iterator Ruta::begin()const{
+Ruta::const_iterator Ruta::cbegin()const{
     const_iterator it;
     it.p = puntos.begin();
     return it;
@@ -137,8 +137,39 @@ Ruta::iterator Ruta::find(const Punto & p){
     
 }
 
-istream &operator >>(istream &is, Ruta & R){}
-ostream &operator<<(ostream & os, Ruta & R){}
+istream &operator >>(istream &is, Ruta & R){
+   Ruta aux;
+
+  int num_puntos = 0;
+
+  is >> num_puntos;
+
+  Punto p;
+
+  for(int i = 0; i < num_puntos; ++i) {
+    is >> p;
+    aux.Insertar(p);
+  }
+
+  R = aux;
+    
+  return is;
+}
+ostream &operator<<(ostream & os, Ruta & R){
+    Ruta::const_iterator it;
+
+  os << R.puntos.size() << " ";
+  
+  for(it = R.cbegin(); it != R.cend(); ++it) {
+    
+    Punto p = (*it);
+    
+    os << p << " ";
+  }
+
+  return os;
+
+}
 
 
 

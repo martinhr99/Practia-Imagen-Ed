@@ -1,0 +1,5 @@
+/Users/martinhernandezruiz/Library/Mobile Documents/com~apple~CloudDocs/INGENIERIA INFORMÁTICA/SEGUNDO/ED/Rutas_Aereas/CMakeFiles/image.dir
+/Users/martinhernandezruiz/Library/Mobile Documents/com~apple~CloudDocs/INGENIERIA INFORMÁTICA/SEGUNDO/ED/Rutas_Aereas/CMakeFiles/pruebarotacion.dir
+/Users/martinhernandezruiz/Library/Mobile Documents/com~apple~CloudDocs/INGENIERIA INFORMÁTICA/SEGUNDO/ED/Rutas_Aereas/CMakeFiles/pruebapegado.dir
+/Users/martinhernandezruiz/Library/Mobile Documents/com~apple~CloudDocs/INGENIERIA INFORMÁTICA/SEGUNDO/ED/Rutas_Aereas/CMakeFiles/edit_cache.dir
+/Users/martinhernandezruiz/Library/Mobile Documents/com~apple~CloudDocs/INGENIERIA INFORMÁTICA/SEGUNDO/ED/Rutas_Aereas/CMakeFiles/rebuild_cache.dir

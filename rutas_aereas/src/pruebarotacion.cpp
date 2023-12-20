@@ -17,10 +17,10 @@ Imagen Rota(const Imagen & Io,double angulo){
     rcorners[1]=0;
     ccorners[0]=0;
     ccorners[2]=0;
-    rcorners[2]=Io.getnum_filas()-1;
-    rcorners[3]=Io.getnum_filas()-1;
-    ccorners[1]=Io.getnum_filas()-1;
-    ccorners[3]=Io.getnum_filas()-1;
+    rcorners[2]=Io.num_filas()-1;
+    rcorners[3]=Io.num_filas()-1;
+    ccorners[1]=Io.num_filas()-1;
+    ccorners[3]=Io.num_filas()-1;
     new_row_min=0;
     new_col_min=0;
     new_row_max=0;
@@ -59,8 +59,8 @@ Imagen Rota(const Imagen & Io,double angulo){
 	   float old_col=-oldrowsin+oldcolcos;
 	   old_row=ceil((double)old_row);
 	   old_col=ceil((double)old_col);
-	   if((old_row>=0)&&(old_row<Io.getnum_filas())&&
-	      (old_col>=0)&&(old_col<Io.getnum_cols()))
+	   if((old_row>=0)&&(old_row<Io.num_filas())&&
+	      (old_col>=0)&&(old_col<Io.num_cols()))
 	   {
 	      Iout(rows,cols)=Io(old_row,old_col);
               
