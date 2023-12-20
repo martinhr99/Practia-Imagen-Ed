@@ -118,7 +118,10 @@ class Ruta{
                 friend class const_iterator;
 
         };
-
+        
+        /**
+         * @class clase iterador constante implementada para recorrer una ruta.
+        */
         class const_iterator{
             private: 
                 list<Punto>::const_iterator p;

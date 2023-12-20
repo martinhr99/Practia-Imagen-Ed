@@ -16,12 +16,26 @@ class Paises{
 
     public:
 
-        Paises(){}
+         /**
+         * @brief Constructor por defecto de la clase paises.
+        */
+        Paises();
 
+        /**
+         * @brief Método Insertar: inserta un país en el contenedor de paises.
+         * @param P País a insertar en el contenedor.
+        */
         void Insertar(const Pais &P);
 
+        /**
+         * @brief Método Borrar: borra un país del contenedor.
+         * @param P País a borrar.
+        */
         void Borrar(const Pais &P);
 
+        /**
+         * @class Clase iterator implemnenta un interador (no constante) para recorrer paises. 
+        */
         class const_iterator;  
                          
         class iterator{
@@ -72,6 +86,9 @@ class Paises{
                 friend class const_iterator;
         };  
 
+         /**
+         * @class clase iterador constante implementada para recorrer paises.
+        */
         class const_iterator{
             private:
                 set<Pais>::const_iterator p;
