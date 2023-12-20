@@ -1,3 +1,10 @@
+/**
+  * @file Punto.h
+  * @brief Fichero cabecera clase Punto
+  *
+  */
+
+
 #ifndef _Punto_
 #define _Punto_
 
@@ -95,3 +102,4 @@ class Punto {
 
 
 #endif
+/* Fin Fichero: Punto.h */

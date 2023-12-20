@@ -1,3 +1,11 @@
+/**
+  * @file imagenES.cpp
+  * @brief Fichero con definiciones para la E/S de imágenes
+  *
+  * Permite la E/S de archivos de tipo PGM,PPM
+  *
+  */
+
 #include "imagen.h"
 #include <assert.h>
 #include "imagenES.h"
@@ -215,6 +223,6 @@ Imagen Imagen::ExtraeImagen(int posi,int posj,int dimi,int dimj){
     return I;
 }
 
-
+/* Fin Fichero: imagenES.cpp */
 
 

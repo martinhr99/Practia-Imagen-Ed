@@ -7,7 +7,7 @@ CPPFLAGS = -Wall -g  -I$(INC) -c
 
 # ************ Compilación ************	
 
-$(BIN)/rutas_aereas: $(OBJ)/rutas_aereas.o $(OBJ)/imagen.o $(OBJ)/imagenES.o $(OBJ)/Pais.o $(OBJ)/Paises.o $(OBJ)/Punto.o $(OBJ)/Ruta.o $(OBJ)/Almacen_Rutas.o
+$(OBJ)/rutas_aereas: $(OBJ)/rutas_aereas.o $(OBJ)/imagen.o $(OBJ)/imagenES.o $(OBJ)/Pais.o $(OBJ)/Paises.o $(OBJ)/Punto.o $(OBJ)/Ruta.o $(OBJ)/Almacen_Rutas.o
 	echo Creando el ejecutable rutas_aereas
 	g++ $(OBJ)/rutas_aereas.o $(OBJ)/imagen.o $(OBJ)/imagenES.o $(OBJ)/Pais.o $(OBJ)/Paises.o $(OBJ)/Punto.o $(OBJ)/Ruta.o $(OBJ)/Almacen_Rutas.o -o $(BIN)/rutas_aereas
 

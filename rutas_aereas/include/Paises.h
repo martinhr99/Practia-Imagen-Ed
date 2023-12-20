@@ -1,3 +1,12 @@
+/**
+  * @file Paises.h
+  * @brief Fichero cabecera Paises
+  *
+  * ALmacena datos de tipo Pais
+  *
+  */
+
+
 #ifndef _PAISES_
 #define _PAISES_
 #include "Pais.h"
@@ -7,6 +16,12 @@
 
 
 using namespace std;
+
+/**
+ * @brief Clase Paises
+ * @class Clase que implementa un contenedor para almacenar y gestionar datos de tipo Paises
+ * 
+ */
 
 class Paises{
 
@@ -201,3 +216,5 @@ class Paises{
 };
 
 #endif 
+
+/* Fin Fichero: Paises.h */

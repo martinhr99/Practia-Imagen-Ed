@@ -92,5 +92,5 @@ bool EscribirImagenPGM (const char nombre[], const unsigned char datos[], int f,
 
 #endif
 
-/* Fin Fichero: imagenES.h */
+/* Fin Fichero: imagen.h */
 

@@ -1,3 +1,12 @@
+
+/**
+  * @file imagen.h
+  * @brief Fichero cabecera de Imagen
+  *
+  * Permite la E/S de archivos de tipos PGM,PPM
+  *
+  */
+
 #ifndef _IMAGEN_
 #define _IMAGEN_
 #include <iostream>
@@ -6,16 +15,23 @@
 
 using namespace std;
 /**
- * @enum Tipo_Pegado
+ * 
  * @brief Dato de tipo enum que representa el tipo de pegado de imagen que se puede realizar.
  *  - El opaco pega la imagen con una transparencia=0.
  *  - EL Blending pega la imagen con transparencia.
+ * @enum Tipo_Pegado
+ * 
+ * @see Tipo_Pegado
 */
-enum Tipo_Pegado {OPACO, BLENDING};
+enum Tipo_Pegado {OPACO,        ///< Tipo de pegado OPACO
+                  BLENDING      ///< Tipo de pegado BLENDING
+                  };
 
 /**
- * @struct Pixel
+ * 
  * @brief Struct que almacena el nivel de rojo, verde y azul (rgb) de la imagen y su nivel de transparencia conformando asi el pixel de la imagen.
+ * @struct Pixel
+ * @see Pixel
 */
 
 struct Pixel{
@@ -25,9 +41,12 @@ struct Pixel{
 
 };  
 /**
- * @class Imagen
- * @brief TDA Imagen creado para poder leer una imagen, realizar modificaciones y escribir dicha imagen de tipo PGM o PPM.
+ * @brief  TDA Imagen creado para poder leer una imagen, realizar modificaciones y escribir dicha imagen de tipo PGM o PPM.
  * 
+ * @class Imagen
+ * 
+ * 
+ * @see Imagen
 */
 class Imagen{
 
@@ -155,3 +174,5 @@ class Imagen{
 }; 
 
 #endif
+
+/* Fin Fichero: imagen.h */
