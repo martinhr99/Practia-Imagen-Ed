@@ -3,6 +3,7 @@
         "list": "cpp",
         "__hash_table": "cpp",
         "__tree": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "iostream": "cpp"
     }
 }

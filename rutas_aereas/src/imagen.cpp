@@ -11,6 +11,7 @@
 #include "imagenES.h"
 
 
+
 using namespace std;
 
 void Imagen::Borrar(){
@@ -23,8 +24,8 @@ void Imagen::Borrar(){
 }
 void Imagen::Copiar(const Imagen &I){
 
-    this->nf=I.num_filas();
-    this->nc=I.num_cols();
+    this->nf=I.nf;
+    this->nc=I.nc;
 
     data= new Pixel*[nf];
 
@@ -34,7 +35,7 @@ void Imagen::Copiar(const Imagen &I){
 
         for(int j=0; j<nc; j++){
 
-            data[i][j]=I.getdata(i,j);
+            data[i][j]=I.data[i][j];
 
         }
     }
@@ -68,7 +69,7 @@ Imagen::Imagen(const Imagen & I){
     this->Copiar(I);
 }
 
-Imagen & Imagen::operator=(const Imagen & I){
+Imagen &Imagen::operator=(const Imagen & I){
     if(this != &I){
         Borrar();
         Copiar(I);
@@ -81,16 +82,17 @@ Imagen::~Imagen(){
     Borrar();
 }
 
-//  !!!! SE HA MODIFICADO EL MÉTODO num_filas y num_col POR getnum_filas y getnum_cols, POR MERA COSTUMBRE DE LLLAMR A LOS METODOS GETER Y SETER!!!!!!
-
 int Imagen::num_filas()const{return nf;}
 int Imagen::num_cols()const{return nc;}
+
+
 Pixel Imagen::getdata(int i, int j)const{return data[i][j];}
 
-Pixel & Imagen::operator ()(int i,int j){
-    assert(i>=0 && i<nf && j>=0 && j<nc);
-    return data[i][j];
+Pixel& Imagen::operator()(int i, int j) {
+  assert(i >= 0 && i < nf && j >= 0 && j < nc*3);
+  return data[i][j];
 }
+
 
 const Pixel & Imagen::operator()(int i,int j)const{
     assert(i>=0 && i<nf && j>=0 && j<nc);
@@ -144,6 +146,7 @@ void Imagen::LeerImagen(const char * nombre,const string &nombremascara){
     LeerTipoImagen(nombre, f, c);
     aux = new unsigned char [f*c*3];
     LeerImagenPPM (nombre, f,c,aux);
+
     if (nombremascara!=""){
         int fm,cm;
         LeerTipoImagen(nombremascara.c_str(), fm, cm);
@@ -158,14 +161,18 @@ void Imagen::LeerImagen(const char * nombre,const string &nombremascara){
     int total = f*c*3;
 
     for (int i=0;i<total;i+=3){
+
         int posi = i /(c*3);
         int posj = (i%(c*3))/3;
-	//cout<<posi<<" " <<posj<<endl;
+	
         I.data[posi][posj].r=aux[i];
         I.data[posi][posj].g=aux[i+1];
         I.data[posi][posj].b=aux[i+2];
-        if (aux_mask!=0) I.data[posi][posj].transp=aux_mask[i/3];
-        else I.data[posi][posj].transp=255;
+
+        if (aux_mask!=0)
+            I.data[posi][posj].transp=aux_mask[i/3];
+        else 
+            I.data[posi][posj].transp=255;
 	}    
 	  
     *this = I;   
@@ -178,7 +185,7 @@ void Imagen::LeerImagen(const char * nombre,const string &nombremascara){
 void Imagen::LimpiarTransp(){
     for(int i=0; i<nf; i++){
         for(int j=0; j<nc; j++){
-            if(data[i][j].transp!=0){
+            if(data[i][j].transp!=0 && data[i][j].transp!=255){
                 data[i][j].transp=0;
             }
         }
@@ -210,18 +217,20 @@ void Imagen::PutImagen(int posi,int posj, const Imagen &I,Tipo_Pegado tippegado)
     }
 }
 
-//No esta muy clara cuál es la funcionaleidad de este método
+
 Imagen Imagen::ExtraeImagen(int posi,int posj,int dimi,int dimj){
     Imagen I(dimi,dimj);
 
     for(int i=posi; i<nf; i++){
         for(int j=posj; j<nc; j++){
-            I.data[i][j]=data[i][j];
+            I.data[i-posi][j-posj]=data[i][j];
         }
 
     }
     return I;
 }
+
+
 
 /* Fin Fichero: imagenES.cpp */
 

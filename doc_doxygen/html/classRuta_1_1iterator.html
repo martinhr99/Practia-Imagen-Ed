@@ -73,6 +73,11 @@ $(function() {
   <div class="headertitle"><div class="title">Ruta::iterator Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Clase iterator implemnenta un interador (no constante) para recorrer una ruta.  
+ <a href="classRuta_1_1iterator.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Ruta_01copy_8h_source.html">Ruta copy.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -91,21 +96,99 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a70cd1754bb49e983f0ec89261caa074a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classPunto.html">Punto</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRuta_1_1iterator.html#a70cd1754bb49e983f0ec89261caa074a">operator*</a> () const</td></tr>
 <tr class="memdesc:a70cd1754bb49e983f0ec89261caa074a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga del operador consulta * en la clase iterator.  <a href="classRuta_1_1iterator.html#a70cd1754bb49e983f0ec89261caa074a">More...</a><br /></td></tr>
 <tr class="separator:a70cd1754bb49e983f0ec89261caa074a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e7fdc391d7d84c3948fcfa7fc8ba6ea"><td class="memItemLeft" align="right" valign="top"><a id="a6e7fdc391d7d84c3948fcfa7fc8ba6ea" name="a6e7fdc391d7d84c3948fcfa7fc8ba6ea"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>iterator</b> ()=default</td></tr>
+<tr class="memdesc:a6e7fdc391d7d84c3948fcfa7fc8ba6ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor por defecto. <br /></td></tr>
+<tr class="separator:a6e7fdc391d7d84c3948fcfa7fc8ba6ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f0fc10304be8edc6502fbfae9561841"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRuta_1_1iterator.html#a7f0fc10304be8edc6502fbfae9561841">iterator</a> (const <a class="el" href="classRuta_1_1iterator.html">iterator</a> &amp;it)</td></tr>
+<tr class="memdesc:a7f0fc10304be8edc6502fbfae9561841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor de copia.  <a href="classRuta_1_1iterator.html#a7f0fc10304be8edc6502fbfae9561841">More...</a><br /></td></tr>
+<tr class="separator:a7f0fc10304be8edc6502fbfae9561841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a9aa1857d8322fe0b2dbf8420abb19f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRuta_1_1iterator.html">iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRuta_1_1iterator.html#a7a9aa1857d8322fe0b2dbf8420abb19f">operator++</a> ()</td></tr>
+<tr class="memdesc:a7a9aa1857d8322fe0b2dbf8420abb19f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga del operador de incremento. Incrementa en una unidad el iterador.  <a href="classRuta_1_1iterator.html#a7a9aa1857d8322fe0b2dbf8420abb19f">More...</a><br /></td></tr>
+<tr class="separator:a7a9aa1857d8322fe0b2dbf8420abb19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5052b6e306f00580163e5fd1660c336c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRuta_1_1iterator.html">iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRuta_1_1iterator.html#a5052b6e306f00580163e5fd1660c336c">operator--</a> ()</td></tr>
+<tr class="memdesc:a5052b6e306f00580163e5fd1660c336c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarda del operador de decremento. Decrementa en una unidad el iterador.  <a href="classRuta_1_1iterator.html#a5052b6e306f00580163e5fd1660c336c">More...</a><br /></td></tr>
+<tr class="separator:a5052b6e306f00580163e5fd1660c336c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af444cfb564023ca31699df6c0fc68b2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRuta_1_1iterator.html#af444cfb564023ca31699df6c0fc68b2e">operator==</a> (const <a class="el" href="classRuta_1_1iterator.html">iterator</a> &amp;it)</td></tr>
+<tr class="memdesc:af444cfb564023ca31699df6c0fc68b2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga del operador relacional == en la clase iterator.  <a href="classRuta_1_1iterator.html#af444cfb564023ca31699df6c0fc68b2e">More...</a><br /></td></tr>
+<tr class="separator:af444cfb564023ca31699df6c0fc68b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0591e5219ab4a102a6d09dca9abadd1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRuta_1_1iterator.html#ab0591e5219ab4a102a6d09dca9abadd1">operator!=</a> (const <a class="el" href="classRuta_1_1iterator.html">iterator</a> &amp;it)</td></tr>
+<tr class="memdesc:ab0591e5219ab4a102a6d09dca9abadd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga del operador relacional != en la clase iterator.  <a href="classRuta_1_1iterator.html#ab0591e5219ab4a102a6d09dca9abadd1">More...</a><br /></td></tr>
+<tr class="separator:ab0591e5219ab4a102a6d09dca9abadd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70cd1754bb49e983f0ec89261caa074a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classPunto.html">Punto</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRuta_1_1iterator.html#a70cd1754bb49e983f0ec89261caa074a">operator*</a> () const</td></tr>
+<tr class="memdesc:a70cd1754bb49e983f0ec89261caa074a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga del operador consulta * en la clase iterator.  <a href="classRuta_1_1iterator.html#a70cd1754bb49e983f0ec89261caa074a">More...</a><br /></td></tr>
+<tr class="separator:a70cd1754bb49e983f0ec89261caa074a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a7f8c2df13a637a043f759e2377cf349b"><td class="memItemLeft" align="right" valign="top"><a id="a7f8c2df13a637a043f759e2377cf349b" name="a7f8c2df13a637a043f759e2377cf349b"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRuta_1_1iterator.html#a7f8c2df13a637a043f759e2377cf349b">Ruta</a></td></tr>
-<tr class="memdesc:a7f8c2df13a637a043f759e2377cf349b"><td class="mdescLeft">&#160;</td><td class="mdescRight">La clase iterator es "amiga" de la clase <a class="el" href="classRuta.html" title="Clase Ruta: Representa una ruta en el mapa, lo cuál es basicamente un lista de puntos del mapa.">Ruta</a>. <br /></td></tr>
-<tr class="separator:a7f8c2df13a637a043f759e2377cf349b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac220ce1c155db1ac44146c12d178056f"><td class="memItemLeft" align="right" valign="top"><a id="ac220ce1c155db1ac44146c12d178056f" name="ac220ce1c155db1ac44146c12d178056f"></a>
+<tr class="memitem:a3664911e00ac04870848de64008bfdb8"><td class="memItemLeft" align="right" valign="top"><a id="a3664911e00ac04870848de64008bfdb8" name="a3664911e00ac04870848de64008bfdb8"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRuta_1_1iterator.html#a3664911e00ac04870848de64008bfdb8">Ruta</a></td></tr>
+<tr class="memdesc:a3664911e00ac04870848de64008bfdb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">La clase iterator es "amiga" de la clase <a class="el" href="classRuta.html" title="Clase Ruta: Representa una ruta en el mapa, lo cuál es basicamente un lista de puntos del mapa.">Ruta</a>. <br /></td></tr>
+<tr class="separator:a3664911e00ac04870848de64008bfdb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d34973bdb3f89801a0bdb2bc553b9d8"><td class="memItemLeft" align="right" valign="top"><a id="a4d34973bdb3f89801a0bdb2bc553b9d8" name="a4d34973bdb3f89801a0bdb2bc553b9d8"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b></td></tr>
-<tr class="memdesc:ac220ce1c155db1ac44146c12d178056f"><td class="mdescLeft">&#160;</td><td class="mdescRight">La clase iterator es "amiga" de la clase <a class="el" href="classRuta_1_1const__iterator.html">const_iterator</a>. <br /></td></tr>
-<tr class="separator:ac220ce1c155db1ac44146c12d178056f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a4d34973bdb3f89801a0bdb2bc553b9d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">La clase iterator es "amiga" de la clase <a class="el" href="classRuta_1_1const__iterator.html" title="clase iterador constante implementada para recorrer una ruta.">const_iterator</a>. <br /></td></tr>
+<tr class="separator:a4d34973bdb3f89801a0bdb2bc553b9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Clase iterator implemnenta un interador (no constante) para recorrer una ruta. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7f0fc10304be8edc6502fbfae9561841" name="a7f0fc10304be8edc6502fbfae9561841"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f0fc10304be8edc6502fbfae9561841">&#9670;&nbsp;</a></span>iterator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Ruta::iterator::iterator </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classRuta_1_1iterator.html">iterator</a> &amp;&#160;</td>
+          <td class="paramname"><em>it</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor de copia. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">it</td><td>Iterador a copiar. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab0591e5219ab4a102a6d09dca9abadd1" name="ab0591e5219ab4a102a6d09dca9abadd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0591e5219ab4a102a6d09dca9abadd1">&#9670;&nbsp;</a></span>operator!=()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0591e5219ab4a102a6d09dca9abadd1">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Ruta::iterator::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classRuta_1_1iterator.html">iterator</a> &amp;&#160;</td>
+          <td class="paramname"><em>it</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sobrecarga del operador relacional != en la clase iterator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">it</td><td>Iterador pasado como parámetro para comparar con el otro iterador. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Devuelve si los iteradores son distintos o no. </dd></dl>
+
+</div>
+</div>
+<a id="ab0591e5219ab4a102a6d09dca9abadd1" name="ab0591e5219ab4a102a6d09dca9abadd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0591e5219ab4a102a6d09dca9abadd1">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -132,7 +215,27 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b></
 </div>
 </div>
 <a id="a70cd1754bb49e983f0ec89261caa074a" name="a70cd1754bb49e983f0ec89261caa074a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70cd1754bb49e983f0ec89261caa074a">&#9670;&nbsp;</a></span>operator*()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a70cd1754bb49e983f0ec89261caa074a">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classPunto.html">Punto</a> &amp; Ruta::iterator::operator* </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sobrecarga del operador consulta * en la clase iterator. </p>
+<dl class="section return"><dt>Returns</dt><dd>Devuelve el elemento de tipo <a class="el" href="classPunto.html" title="Esta clase representa un punto en el mapa.">Punto</a> al que apunta el iterador. </dd></dl>
+
+</div>
+</div>
+<a id="a70cd1754bb49e983f0ec89261caa074a" name="a70cd1754bb49e983f0ec89261caa074a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70cd1754bb49e983f0ec89261caa074a">&#9670;&nbsp;</a></span>operator*() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,7 +255,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b></
 </div>
 </div>
 <a id="a9dddbbbb54c571bb9e75756f49ca3ac4" name="a9dddbbbb54c571bb9e75756f49ca3ac4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dddbbbb54c571bb9e75756f49ca3ac4">&#9670;&nbsp;</a></span>operator++()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dddbbbb54c571bb9e75756f49ca3ac4">&#9670;&nbsp;</a></span>operator++() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,8 +274,28 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b></
 
 </div>
 </div>
+<a id="a7a9aa1857d8322fe0b2dbf8420abb19f" name="a7a9aa1857d8322fe0b2dbf8420abb19f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a9aa1857d8322fe0b2dbf8420abb19f">&#9670;&nbsp;</a></span>operator++() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classRuta_1_1iterator.html">iterator</a> &amp; Ruta::iterator::operator++ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sobrecarga del operador de incremento. Incrementa en una unidad el iterador. </p>
+<dl class="section return"><dt>Returns</dt><dd>Devuelve un iterador mayor en una unidad. </dd></dl>
+
+</div>
+</div>
 <a id="ac2d4f80c5e45d5fc03ed419b68822621" name="ac2d4f80c5e45d5fc03ed419b68822621"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2d4f80c5e45d5fc03ed419b68822621">&#9670;&nbsp;</a></span>operator--()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2d4f80c5e45d5fc03ed419b68822621">&#9670;&nbsp;</a></span>operator--() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -191,8 +314,55 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b></
 
 </div>
 </div>
+<a id="a5052b6e306f00580163e5fd1660c336c" name="a5052b6e306f00580163e5fd1660c336c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5052b6e306f00580163e5fd1660c336c">&#9670;&nbsp;</a></span>operator--() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classRuta_1_1iterator.html">iterator</a> &amp; Ruta::iterator::operator-- </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sobrecarda del operador de decremento. Decrementa en una unidad el iterador. </p>
+<dl class="section return"><dt>Returns</dt><dd>Devuelve un iterador menor en una unidad. </dd></dl>
+
+</div>
+</div>
 <a id="af444cfb564023ca31699df6c0fc68b2e" name="af444cfb564023ca31699df6c0fc68b2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af444cfb564023ca31699df6c0fc68b2e">&#9670;&nbsp;</a></span>operator==()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af444cfb564023ca31699df6c0fc68b2e">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Ruta::iterator::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classRuta_1_1iterator.html">iterator</a> &amp;&#160;</td>
+          <td class="paramname"><em>it</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sobrecarga del operador relacional == en la clase iterator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">it</td><td>Iterador pasado como parámetro para comparar con el otro iterador. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Devuelve si los iteradores son iguales o no. </dd></dl>
+
+</div>
+</div>
+<a id="af444cfb564023ca31699df6c0fc68b2e" name="af444cfb564023ca31699df6c0fc68b2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af444cfb564023ca31699df6c0fc68b2e">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,6 +389,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b></
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
+<li>include/<a class="el" href="Ruta_01copy_8h_source.html">Ruta copy.h</a></li>
 <li>include/<a class="el" href="Ruta_8h_source.html">Ruta.h</a></li>
 <li>src/<a class="el" href="Ruta_8cpp.html">Ruta.cpp</a></li>
 </ul>

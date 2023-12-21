@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['getcode_0',['getCode',['../classRuta.html#aa5a99b143d66c174a95284e3eb5f635b',1,'Ruta']]],
-  ['getdata_1',['getdata',['../classImagen.html#a6d7e3ba098a0bfb8d98b78ba05791c83',1,'Imagen']]],
-  ['getlatitud_2',['getLatitud',['../classPunto.html#a5811eb441fc3ad9e9d4d60f03b21069f',1,'Punto']]],
-  ['getlongitud_3',['getLongitud',['../classPunto.html#a4f695efc926958f7237d72bfe3c62f3b',1,'Punto']]]
+  ['find_0',['find',['../classAlmacen__Rutas.html#a27778e2a3d91ede69d88bf42f33dac01',1,'Almacen_Rutas::find()'],['../classPaises.html#a57210a15d9d8fd41fbb4524e32372046',1,'Paises::find(const Pais &amp;p)'],['../classPaises.html#a290481666d9d6b0bd7dafea3999ff335',1,'Paises::find(const Punto &amp;p)'],['../classRuta.html#adf2522bce48ed1644cecc3a82b9d613a',1,'Ruta::find(const Punto &amp;p)'],['../classRuta.html#acc1f1f2660763fc77de73be29912a407',1,'Ruta::find(const Punto &amp;p)']]]
 ];

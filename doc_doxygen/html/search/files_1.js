@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['paises_2ecpp_0',['Paises.cpp',['../Paises_8cpp.html',1,'']]],
-  ['paises_2eh_1',['Paises.h',['../Paises_8h.html',1,'']]],
-  ['punto_2ecpp_2',['Punto.cpp',['../Punto_8cpp.html',1,'']]],
-  ['punto_2eh_3',['Punto.h',['../Punto_8h.html',1,'']]]
+  ['imagen_2eh_0',['imagen.h',['../imagen_8h.html',1,'']]],
+  ['imagenes_2ecpp_1',['imagenES.cpp',['../imagenES_8cpp.html',1,'']]],
+  ['imagenes_2eh_2',['imagenES.h',['../imagenES_8h.html',1,'']]]
 ];

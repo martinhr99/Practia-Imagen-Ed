@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['pais_0',['Pais',['../classPais.html',1,'']]],
-  ['paises_1',['Paises',['../classPaises.html',1,'']]],
-  ['pixel_2',['Pixel',['../structPixel.html',1,'']]],
-  ['punto_3',['Punto',['../classPunto.html',1,'']]]
+  ['imagen_0',['Imagen',['../classImagen.html',1,'']]],
+  ['iterator_1',['iterator',['../classAlmacen__Rutas_1_1iterator.html',1,'Almacen_Rutas::iterator'],['../classPaises_1_1iterator.html',1,'Paises::iterator'],['../classRuta_1_1iterator.html',1,'Ruta::iterator']]]
 ];

@@ -1,50 +1,16 @@
 
 #include "imagen.h"
-#include "Almacen_Rutas_copy.h"
+#include "Almacen_Rutas.h"
 #include "Paises.h"
-#include "Ruta.h"      //QUitar cuando se tenga ALmacen ruta
+
 #include <iostream>
 #include <cmath>
 #include <fstream>
+#include <iterator>
 
 using namespace std;
 
-void Pintar( int f1,int f2,int c1,int c2,Imagen &I, const Imagen &avion,int mindisf,int mindisc){
-      
-      int fila,col;
-      if (abs(f2-f1)>=mindisf || abs(c2-c1)>=mindisc){ 
-	
-	 if (c1!=c2){
-	   double a,b;
-	   a= double(f2-f1)/double(c2-c1);
-	   b= f1-a*c1;
-	   col = (int)(c1+c2)/2;
-	   fila = (int)rint(a*col+b);
-	 }  
-	 else{
-	   col = c1;
-	   fila = (f1+f2)/2;
-	 }  
-	  
-	  
-	  double angulo = atan2((f2-f1),(c2-c1));
-	  Imagen Irota=Rota(avion,angulo);
-	
-	  I.PutImagen(fila,col,Irota);//pensar si debe ser opaco o blending
-	  
-	   angulo = atan2((f2-fila),(c2-col));
-	  Irota=Rota(avion,angulo);
-	
-	  I.PutImagen(f2,c2,Irota);//pensar si debe ser opaco o blending
-	  angulo = atan2((fila-f1),(col-c1));
-	  Irota=Rota(avion,angulo);
-	
-	  I.PutImagen(f1,c1,Irota);//pensar si debe ser opaco o blending
-	 
-      
-      }
-     
-}  
+
 
 /** 
  * @brief Obtiene una nueva imagen que es la versión rotada de una imagen de entrada
@@ -54,9 +20,11 @@ void Pintar( int f1,int f2,int c1,int c2,Imagen &I, const Imagen &avion,int mind
  * */
 
 Imagen Rota(const Imagen & Io,double angulo){
+
     double rads=angulo;
     double coseno = cos(angulo);
     double seno = sin(angulo);
+
     //Para obtener las dimensiones de la imagen
     int rcorners[4],ccorners[4];
     int newimgrows,newimgcols;
@@ -76,18 +44,22 @@ Imagen Rota(const Imagen & Io,double angulo){
     new_col_max=0;
     newimgrows=0;
     newimgcols=0;
+
     for(int count=0;count<4;count++)
     {
 	    inter=rcorners[count]*coseno+ccorners[count]*seno;
 	   
 	    if(inter<new_row_min)
 		    new_row_min=inter;
+
 	    if(inter>new_row_max)
 		    new_row_max=inter;
+
 	    inter1=-rcorners[count]*seno+ccorners[count]*coseno;
 	   
 	    if(inter1<new_col_min)
 		    new_col_min=inter1;	
+
 	    if(inter1>new_col_max)
 		    new_col_max=inter1;
    }
@@ -96,34 +68,98 @@ Imagen Rota(const Imagen & Io,double angulo){
     newimgcols=(unsigned)ceil((double)new_col_max-new_col_min);
    
     Imagen Iout(newimgrows,newimgcols);
-    for(int rows=0;rows<newimgrows;rows++)
-      {
-	for(int cols=0;cols<newimgcols;cols++)
-	{
-	   float oldrowcos=((float)rows+new_row_min)*cos(-rads);
-	   float oldrowsin=((float)rows+new_row_min)*sin(-rads);
-	   float oldcolcos=((float)cols+new_col_min)*cos(-rads);
-	   float oldcolsin=((float)cols+new_col_min)*sin(-rads);
-	   float old_row=oldrowcos+oldcolsin;
-	   float old_col=-oldrowsin+oldcolcos;
-	   old_row=ceil((double)old_row);
-	   old_col=ceil((double)old_col);
-	   if((old_row>=0)&&(old_row<Io.num_filas())&&
-	      (old_col>=0)&&(old_col<Io.num_cols()))
-	   {
-	      Iout(rows,cols)=Io(old_row,old_col);
-              
-	   }
-	   else
-	     Iout(rows,cols).r=Iout(rows,cols).g=Iout(rows,cols).b=255;
-	}
+
+    for(int rows=0;rows<newimgrows;rows++) {
+	      for(int cols=0;cols<newimgcols;cols++){
+
+            float oldrowcos=((float)rows+new_row_min)*cos(-rads);
+            float oldrowsin=((float)rows+new_row_min)*sin(-rads);
+            float oldcolcos=((float)cols+new_col_min)*cos(-rads);
+            float oldcolsin=((float)cols+new_col_min)*sin(-rads);
+            float old_row=oldrowcos+oldcolsin;
+            float old_col=-oldrowsin+oldcolcos;
+
+            old_row=ceil((double)old_row);
+            old_col=ceil((double)old_col);
+
+	          if((old_row>=0) && (old_row<Io.num_filas()) && 
+               (old_col>=0) && (old_col<Io.num_cols())){
+
+	            Iout(rows,cols)=Io(old_row,old_col); 
+
+            }else{ 
+            Iout(rows,cols).r=Iout(rows,cols).g=Iout(rows,cols).b=255;
+            Iout(rows,cols).transp=0;
+            }
+        }
+
     }
     return Iout;
 	  
 }
 
+/**
+ * @brief Pinta imagenes de un avion encima de otra imagen.
+ * @param f1 Fila inicial de la imagen sobre la cual se va a pintar el avion.
+ * @param f2 Fila final de la imagen sobre la cual se va a pintar el avion.
+ * @param c1 Columna inicial de la imagen sobre la cual se va a pintar el avion.
+ * @param c2 Columna final de la imagen sobre la cual se va a pintar el avion.
+ * @param I Imagen sobre la cual se va a pintar el avion.
+ * @param avion Imagen de un avion que se va a pintar encima de otra imagen.
+ * @param mindisf Distancia entre f1 y f2.
+ * @param mindisc Distancia entre c1 y c2.
+ */
+
+void Pintar( int f1,int f2,int c1,int c2,Imagen &I, const Imagen &avion,int mindisf,int mindisc){
+      
+    int fila,col;
+
+    if (abs(f2-f1)>=mindisf || abs(c2-c1)>=mindisc){ 
+	
+      if (c1!=c2){
+
+        double a,b;
+        a= double(f2-f1) / double(c2-c1);
+        b= f1 - a*c1;
+        col = (int)(c1+c2)/2;
+        fila = (int)rint(a*col+b);
+
+      }else{
+
+        col = c1;
+        fila = (f1+f2)/2;
+	    }  
+	  
+	  
+	  double angulo = atan2((f2-f1),(c2-c1));
+	  Imagen Irota= Rota(avion,angulo);
+	
+	  I.PutImagen(fila,col,Irota,Tipo_Pegado::OPACO);//pensar si debe ser opaco o blending
+	  
+	  angulo = atan2((f2-fila),(c2-col));
+	  Irota=Rota(avion,angulo);
+	
+	  I.PutImagen(f2,c2,Irota, Tipo_Pegado::OPACO);//pensar si debe ser opaco o blending
+	  angulo = atan2((fila-f1),(col-c1));
+	  Irota=Rota(avion,angulo);
+	
+	  I.PutImagen(f1,c1,Irota, Tipo_Pegado::OPACO);//pensar si debe ser opaco o blending
+	 
+      
+      }
+     
+}  
+/**
+ * @brief FUNCIÓN PRINCIPAL
+ * 
+ * @param argc 
+ * @param argv Archivos .txt con la informacion de las rutas, paises y los .pgm o .ppm con las imágenes
+ * @return int 
+ */
 int main(int argc, char * argv[]){
+
     if (argc!=7){
+
       cout<<"Los parametros son:"<<endl;
       cout<<"1.-Fichero con la informacion de los paises"<<endl;
       cout<<"2.-Nombre de la imagen con el mapa del mundo"<<endl;
@@ -131,7 +167,7 @@ int main(int argc, char * argv[]){
       cout<<"4.-Fichero con el almacen de rutas"<<endl;
       cout<<"5.- Nombre de la imagen con el avion"<<endl;
       cout<<"6.- Nombre de la imagen de la mascara del avion"<<endl;
-      
+      return 0;
       
     }    
 
@@ -139,9 +175,10 @@ int main(int argc, char * argv[]){
     ifstream f (argv[1]);
     f>>Pses;
     //cout<<Pses;
+
     Imagen I;
     I.LeerImagen(argv[2]);
-
+    
     //Leemos los aviones 
     Imagen avion;
     avion.LeerImagen(argv[5],argv[6]);
@@ -151,19 +188,19 @@ int main(int argc, char * argv[]){
     f.open (argv[4]);
     f>>Ar;
     cout<<"Las rutas: "<<endl<<Ar;
-    cout<<"Dime el codigo de una ruta"<<endl;
+    cout <<endl<< "Dime el codigo de una ruta" << endl;
     string a;
     cin>>a;
-    Ruta R=Ar.GetRuta(a);
+    Ruta R =Ar.GetRuta(a);
 
+    Ruta::iterator it_anterior, it;
+    Paises::iterator i_paises_anterior = Pses.end();
+    Paises::iterator i_paises=Pses.end();
 
-    Ruta::iterator it= R.begin();
-    Ruta::iterator it_anterior=R.begin();
-    Paises::iterator i_paises_anterior= Pses.end();
-    Paises::iterator i_paises= Pses.end();
     Imagen bandera_inicio;
     int posi_ini, posj_ini;
 
+    
     for (it=R.begin(); it!=R.end(); ++it){
      
       Punto punto=(*it);
@@ -172,7 +209,7 @@ int main(int argc, char * argv[]){
       i_paises=Pses.find(punto);
 
       string name=(*i_paises).GetBandera();
-      string n_com= argv[3]+name;
+      string n_com= argv[3] + name;
 
       Imagen bandera;
       bandera.LeerImagen(n_com.c_str(), "");
@@ -191,23 +228,23 @@ int main(int argc, char * argv[]){
         int f2=y-avion.num_filas()/2;
         int c1=x_old-avion.num_cols()/2;
         int c2=x-avion.num_cols()/2;
-        int mindisf=50;       //Probar modificaciones 
-        int mindisc=50;       //Probar modificaciones
+        int mindisf=20;       //Probar modificaciones 
+        int mindisc=20;       //Probar modificaciones
         
         Pintar(f1,f2,c1,c2, I, avion,mindisf, mindisc);
       }
 
       int posi = y-bandera.num_filas()/2;
       int posj = x-bandera.num_cols()/2;
-      Tipo_Pegado tipo = BLENDING;
-      I.PutImagen(posi, posj, I, tipo);
+      
+      I.PutImagen(posi, posj, I, Tipo_Pegado::BLENDING);
     
       if(i_paises != Pses.begin() ){
 
        posi = posi_ini-bandera_inicio.num_filas()/2;
        posj = posj_ini-bandera_inicio.num_cols()/2;
-      Tipo_Pegado tipo = BLENDING;
-      I.PutImagen(posi, posj, I, tipo);
+      
+      I.PutImagen(posi, posj, I, Tipo_Pegado::BLENDING);
       }
 
       bandera_inicio=bandera;
@@ -215,19 +252,15 @@ int main(int argc, char * argv[]){
       posj_ini=x;
       it_anterior=it;
     }
-      string nsal = a + ".ppm";
-      I.EscribirImagen(nsal.c_str());
+    
+    string nsal = a + ".ppm";
+    I.EscribirImagen(nsal.c_str());
 
-      cout<<endl;
+    cout<<endl;
 
-      
     
     
     
-    
-    
-    
-   
 
     return 0;
 }

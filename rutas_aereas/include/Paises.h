@@ -34,7 +34,7 @@ class Paises{
          /**
          * @brief Constructor por defecto de la clase paises.
         */
-        Paises();
+        Paises()=default;
 
         /**
          * @brief Método Insertar: inserta un país en el contenedor de paises.
@@ -57,6 +57,11 @@ class Paises{
             private:
                 set<Pais>::iterator p;
             public:
+                /**
+                 * @brief Constructor por defecto de iteartor
+                 * 
+                 */
+                iterator()=default;
 
                 /**
                  * @brief Sobrecarga del operador de incremento. Incrementa en una unidad el iterador.
@@ -75,20 +80,20 @@ class Paises{
                  * @param it Iterador pasado como parámetro para comparar con el otro iterador.
                  * @return Devuelve si los iteradores son iguales o no.
                 */ 
-                bool iterator::operator==(const iterator &it);
+                bool operator==(const iterator &it);
 
                 /**
                  * @brief Sobrecarga del operador relacional != en la clase iterator.
                  * @param it Iterador pasado como parámetro para comparar con el otro iterador.
                  * @return Devuelve si los iteradores son distintos o no.
                 */ 
-                bool iterator::operator!=(const iterator &it);
+                bool operator!=(const iterator &it);
 
                 /**
                  * @brief Sobrecarga del operador consulta * en la clase iterator.
                  * @return Devuelve el elemento de tipo Pais al que apunta el iterador.
                 */
-                const Pais &iterator::operator*()const;
+                const Pais &operator*()const;
 
                 /**
                  * @brief La clase iterator es "amiga" de la clase Paises.
@@ -108,8 +113,18 @@ class Paises{
             private:
                 set<Pais>::const_iterator p;
             public:
+                /**
+                 * @brief Constructor por defecto
+                 * 
+                 */
+                const_iterator()=default;
 
-                //const_iterator (const iterator &it);
+                /**
+                 * @brief Constructor por parámetros
+                 * 
+                 * @param it iterador 
+                 */
+                const_iterator (const iterator &it);
                 
                 //const_iterator (const iterator &it);
                 /**
@@ -136,20 +151,20 @@ class Paises{
                  * @param it Iterador constante pasado como parámetro para comparar con el otro iterador constante.
                  * @return Devuelve si los iteradores constantes son iguales o no.
                 */ 
-                bool const_iterator::operator==(const const_iterator &it);
+                bool operator==(const const_iterator &it);
 
                 /**
                  * @brief Sobrecarga del operador relacional != en la clase const_iterator.
                  * @param it Iterador constante pasado como parámetro para comparar con el otro iterador constante.
                  * @return Devuelve si los iteradores constantes son distintos o no.
                 */  
-                bool const_iterator::operator!=(const const_iterator &it);
+                bool operator!=(const const_iterator &it);
 
                 /**
                  * @brief Sobrecarga del operador consulta * en la clase const_iterator.
                  * @return Devuelve el elemento de tipo Pais al que apunta el iterador constante.
                 */ 
-                const Pais &const_iterator::operator*()const; 
+                const Pais &operator*()const; 
 
                 /**
                  * @brief La clase const_iterator es "amiga" de la clase Paises.
@@ -211,9 +226,15 @@ class Paises{
          * @return Devuelve el flujjo de salida os.
         */
         friend ostream & operator<<(ostream & os, const Paises &R);
+
+
+        
     
 
 };
+
+
+
 
 #endif 
 

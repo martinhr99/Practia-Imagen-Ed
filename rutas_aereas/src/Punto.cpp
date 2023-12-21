@@ -17,10 +17,10 @@ Punto::Punto(){
     longitud=0;
     latitud=0;
 }
-Punto::Punto(double lt, double log, string code){
+Punto::Punto(double lt, double log, string cd){
     latitud=lt;
     longitud=log;
-    code=code;
+    code=cd;
 
 }
 
@@ -41,13 +41,14 @@ void Punto::setLatitud(double lt){
 void Punto::setLongitud(double lg){
     longitud=lg;
 }
-void Punto::setCode(string code){
-    this.code=code;
+void Punto::setCode(string cd){
+    code=cd;
 }
 
 string Punto::getCode()const{
     return code;
 }
+
 bool Punto::operator ==(const Punto&p)const{
     return ((this->getLatitud()== p.getLatitud()) && (this->getLongitud() == p.getLongitud()));
 }
@@ -63,7 +64,7 @@ istream &operator>>(istream &is, Punto&p){
 
     is >> parentesis1 >> lt >> coma >> log >> parentesis2;
 
-    p = Punto(lt, log);
+    p = Punto(lt, log, "");
 
     return is;
 }

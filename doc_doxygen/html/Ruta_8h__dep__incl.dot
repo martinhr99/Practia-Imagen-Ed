@@ -5,5 +5,9 @@ digraph "include/Ruta.h"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="include/Ruta.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Fichero cabecera clase Ruta."];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="src/Ruta.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Ruta_8cpp.html",tooltip="Fichero con definiciones para la la clase Ruta."];
+  Node2 [label="include/Almacen_Rutas.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Almacen__Rutas_8h.html",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="src/Almacen_Rutas.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Almacen__Rutas_8cpp.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="src/Ruta.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Ruta_8cpp.html",tooltip="Fichero con definiciones para la la clase Ruta."];
 }

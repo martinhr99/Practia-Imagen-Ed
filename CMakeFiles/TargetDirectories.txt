@@ -1,5 +1,7 @@
-/Users/martinhernandezruiz/Library/Mobile Documents/com~apple~CloudDocs/INGENIERIA INFORMÁTICA/SEGUNDO/ED/Rutas_Aereas-1/CMakeFiles/image.dir
-/Users/martinhernandezruiz/Library/Mobile Documents/com~apple~CloudDocs/INGENIERIA INFORMÁTICA/SEGUNDO/ED/Rutas_Aereas-1/CMakeFiles/pruebarotacion.dir
-/Users/martinhernandezruiz/Library/Mobile Documents/com~apple~CloudDocs/INGENIERIA INFORMÁTICA/SEGUNDO/ED/Rutas_Aereas-1/CMakeFiles/pruebapegado.dir
-/Users/martinhernandezruiz/Library/Mobile Documents/com~apple~CloudDocs/INGENIERIA INFORMÁTICA/SEGUNDO/ED/Rutas_Aereas-1/CMakeFiles/edit_cache.dir
-/Users/martinhernandezruiz/Library/Mobile Documents/com~apple~CloudDocs/INGENIERIA INFORMÁTICA/SEGUNDO/ED/Rutas_Aereas-1/CMakeFiles/rebuild_cache.dir
+/home/martinhdzruiz/Escritorio/Rutas_Aereas-1/CMakeFiles/image.dir
+/home/martinhdzruiz/Escritorio/Rutas_Aereas-1/CMakeFiles/pruebarotacion.dir
+/home/martinhdzruiz/Escritorio/Rutas_Aereas-1/CMakeFiles/pruebapegado.dir
+/home/martinhdzruiz/Escritorio/Rutas_Aereas-1/CMakeFiles/ruta_aerea.dir
+/home/martinhdzruiz/Escritorio/Rutas_Aereas-1/CMakeFiles/doc_doxygen.dir
+/home/martinhdzruiz/Escritorio/Rutas_Aereas-1/CMakeFiles/edit_cache.dir
+/home/martinhdzruiz/Escritorio/Rutas_Aereas-1/CMakeFiles/rebuild_cache.dir

@@ -32,7 +32,14 @@ class Ruta{
         /**
          * @brief Constructor por defecto de la clase ruta.
         */
-        Ruta();
+        Ruta()=default;
+
+        /**
+         * @brief Construct a new Ruta object
+         * 
+         * @param R 
+         */
+        Ruta(const Ruta &R);
 
         /**
          * @brief Método Insertar: inserta un punto en la lista de puntos o ruta.
@@ -59,11 +66,19 @@ class Ruta{
         void setCode(const string &code);
 
         /**
-         * @brief Sobrecarga del operador relacional == en la clase ruta.
+         * @brief Tamaño de la ruta.
+         * 
+         * @return int 
+         */
+        int GetSize()const;
+   
+
+          /**
+         * @brief Sobrecarga del operador relacional != en la clase ruta.
          * @param R Ruta pasada como parámetro para comparar la otra ruta.
-         * @return Devuelve si las rutas son iguales o no.
+         * @return Devuelve si las rutas son distintas o no.
         */
-        bool operator==(const Ruta & R )const;
+        bool operator!=(const Ruta & R )const;
 
         /**
          * @brief Sobrecarga del operador relacional < en la clase ruta. Tanto la latid como la longitud han de ser menores.
@@ -80,6 +95,18 @@ class Ruta{
                 list<Punto>::iterator p;
 
             public:
+
+
+				/**
+		 		 * @brief Constructor por defecto.
+		 		 */	
+				iterator() = default;
+
+				/**
+		 		 * @brief Constructor de copia.
+		 		 * @param it Iterador a copiar.
+		 		 */	
+				iterator(const iterator &it);
 
                 /**
                  * @brief Sobrecarga del operador de incremento. Incrementa en una unidad el iterador.
@@ -133,7 +160,18 @@ class Ruta{
             private: 
                 list<Punto>::const_iterator p;
             public:
-                //const_iterator (const iterator &it);
+
+
+                /**
+		 		 * @brief Constructor por defecto.
+		 		 */
+				const_iterator() = default;
+
+				/**
+		 		 * @brief Constructor de copia.
+		 		 * @param it Iterador constante a copiar.
+		 		 */	
+				const_iterator(const const_iterator &it);
                 /**
                  * @brief Sobrecarga del operador de asigancion. 
                  * @param it Iterador de tipo Ruta constante.
@@ -158,20 +196,22 @@ class Ruta{
                  * @param it Iterador constante pasado como parámetro para comparar con el otro iterador constante.
                  * @return Devuelve si los iteradores constantes son iguales o no.
                 */ 
-                bool const_iterator::operator==(const const_iterator &it);
+                bool operator==(const const_iterator &it);
+
+
 
                /**
                  * @brief Sobrecarga del operador relacional != en la clase const_iterator.
                  * @param it Iterador constante pasado como parámetro para comparar con el otro iterador constante.
                  * @return Devuelve si los iteradores constantes son distintos o no.
                 */  
-                bool const_iterator::operator!=(const const_iterator &it);
+                bool operator!=(const const_iterator &it);
 
                 /**
                  * @brief Sobrecarga del operador consulta * en la clase const_iterator.
                  * @return Devuelve el elemento de tipo Punto al que apunta el iterador constante.
                 */ 
-                const Punto &const_iterator::operator*()const;  
+                const Punto &operator*()const;  
 
                 /**
                  * @brief La clase const_iterator es "amiga" de la clase Ruta.
@@ -211,6 +251,13 @@ class Ruta{
          * @return Devuelve un iterador que apunta al punto que se buscaba.
         */
         iterator find(const Punto & p);
+
+        /**
+         * @brief Sobrecarga del operador relacional == en la clase ruta.
+         * @param R Ruta pasada como parámetro para comparar la otra ruta.
+         * @return Devuelve si las rutas son iguales o no.
+        */
+        bool operator==(const Ruta & R )const;
 
         /**
          * @brief Operador de flujo de entrada.

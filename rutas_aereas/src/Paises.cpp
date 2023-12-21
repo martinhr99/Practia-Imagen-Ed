@@ -6,7 +6,8 @@
 
 #include "Paises.h"
 
-Paises::Paises(){}
+
+
 
 void Paises::Insertar(const Pais &P){
 
@@ -35,7 +36,7 @@ Paises::iterator &Paises::iterator::operator--(){
     return *this;
 }
 
-    const Pais &Paises::iterator::operator*()const{
+const Pais &Paises::iterator::operator*()const{
     return *p;
 }
 
@@ -45,18 +46,18 @@ bool Paises::iterator::operator==(const Paises::iterator &it){
 }
 
 bool Paises::iterator::operator!=(const Paises::iterator &it){
-    return !(it.p==p);
+    return it.p!=p;
 }
 
 
 //************************************************************//
 // Implementacion de la clase const_iterator dentro de paises // 
 //************************************************************//  
-/*
+
 Paises::const_iterator::const_iterator(const iterator &it){
     p=it.p;
 }
-*/
+
 Paises::const_iterator &Paises::const_iterator::operator=(const Paises::iterator &it){
     p=it.p;
     return *this;
@@ -81,7 +82,7 @@ bool Paises::const_iterator::operator==(const Paises::const_iterator &it){
 }
 
 bool Paises::const_iterator::operator!=(const Paises::const_iterator &it){
-    return !(it.p==p);
+    return it.p!=p;
 }
 
 //*****************************************************************//
@@ -121,8 +122,12 @@ Paises::iterator Paises::find(const Pais &p){
 
     iterator it;
     set<Pais>::iterator i;
-    for (i=datos.begin(); i!=datos.end() && !((*i)==p);++i);
-    it.p=i;
+
+    for (i=datos.begin(); i!=datos.end() && !((*i)==p);++i){
+        
+        it.p=i;
+    }
+    
     return it;
 }
 
@@ -135,41 +140,37 @@ Paises::iterator Paises::find(const Punto &p){
     return it;
 }
 
-istream & operator>>(istream & is, Paises & R){
-    Paises rlocal;
-    //leemos el comentario
-    if (is.peek()=='#'){
-
-        string a;
-        getline(is,a);
-    }	
-    
-    Pais P;
-
-    while (is>>P){
-
-        rlocal.Insertar(P);
-    
-    }
-
-    R=rlocal;
-
-    return is;
+istream &operator>>(istream &is, Paises &Ps) {
+	
+	Paises pslocal;
+	
+	// Leemos el comentario
+	if(is.peek() == '#') {
+		string a;
+		getline(is, a);
+	}	
+	      
+	Pais P;
+	
+	while(is >> P) {
+		pslocal.Insertar(P);
+	}
+		  
+	Ps = pslocal;
+	
+	return is;
 }
 
-ostream & operator<<(ostream & os, const Paises &R){
+ostream &operator<<(ostream &os, const Paises &Ps) {
+	
+	Paises::const_iterator it;
 
-    Paises::const_iterator it;
+	for(it = Ps.cbegin(); it != Ps.cend(); ++it) {
+		os << *it << "\t";
+	}
 
-    for (it=R.cbegin(); it!=R.cend(); ++it){
-
-        os<<*it<<"\t";
-
-    }
-    
-    return os;
+	return os;
 }
-
 
 
 /* Fin Fichero: Paises.cpp */

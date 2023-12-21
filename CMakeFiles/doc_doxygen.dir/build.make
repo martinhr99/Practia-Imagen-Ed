@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/martinhdzruiz/Escritorio/Rutas_Aereas
+CMAKE_SOURCE_DIR = /home/martinhdzruiz/Escritorio/Rutas_Aereas-1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/martinhdzruiz/Escritorio/Rutas_Aereas
+CMAKE_BINARY_DIR = /home/martinhdzruiz/Escritorio/Rutas_Aereas-1
 
 # Utility rule file for doc_doxygen.
 
@@ -67,8 +67,8 @@ include CMakeFiles/doc_doxygen.dir/compiler_depend.make
 include CMakeFiles/doc_doxygen.dir/progress.make
 
 CMakeFiles/doc_doxygen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/martinhdzruiz/Escritorio/Rutas_Aereas/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating API documentation with Doxygen"
-	cd /home/martinhdzruiz/Escritorio/Rutas_Aereas/rutas_aereas && /usr/bin/doxygen /home/martinhdzruiz/Escritorio/Rutas_Aereas/Doxyfile
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/martinhdzruiz/Escritorio/Rutas_Aereas-1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating API documentation with Doxygen"
+	cd /home/martinhdzruiz/Escritorio/Rutas_Aereas-1/rutas_aereas && /usr/bin/doxygen /home/martinhdzruiz/Escritorio/Rutas_Aereas-1/Doxyfile
 
 doc_doxygen: CMakeFiles/doc_doxygen
 doc_doxygen: CMakeFiles/doc_doxygen.dir/build.make
@@ -83,6 +83,6 @@ CMakeFiles/doc_doxygen.dir/clean:
 .PHONY : CMakeFiles/doc_doxygen.dir/clean
 
 CMakeFiles/doc_doxygen.dir/depend:
-	cd /home/martinhdzruiz/Escritorio/Rutas_Aereas && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/martinhdzruiz/Escritorio/Rutas_Aereas /home/martinhdzruiz/Escritorio/Rutas_Aereas /home/martinhdzruiz/Escritorio/Rutas_Aereas /home/martinhdzruiz/Escritorio/Rutas_Aereas /home/martinhdzruiz/Escritorio/Rutas_Aereas/CMakeFiles/doc_doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/martinhdzruiz/Escritorio/Rutas_Aereas-1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/martinhdzruiz/Escritorio/Rutas_Aereas-1 /home/martinhdzruiz/Escritorio/Rutas_Aereas-1 /home/martinhdzruiz/Escritorio/Rutas_Aereas-1 /home/martinhdzruiz/Escritorio/Rutas_Aereas-1 /home/martinhdzruiz/Escritorio/Rutas_Aereas-1/CMakeFiles/doc_doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doc_doxygen.dir/depend
 

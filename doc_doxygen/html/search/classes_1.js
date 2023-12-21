@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['imagen_0',['Imagen',['../classImagen.html',1,'']]],
-  ['iterator_1',['iterator',['../classPaises_1_1iterator.html',1,'Paises::iterator'],['../classRuta_1_1iterator.html',1,'Ruta::iterator']]]
+  ['const_5fiterator_0',['const_iterator',['../classAlmacen__Rutas_1_1const__iterator.html',1,'Almacen_Rutas::const_iterator'],['../classPaises_1_1const__iterator.html',1,'Paises::const_iterator'],['../classRuta_1_1const__iterator.html',1,'Ruta::const_iterator']]]
 ];

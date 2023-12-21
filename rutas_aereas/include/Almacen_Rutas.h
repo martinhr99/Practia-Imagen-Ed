@@ -28,6 +28,7 @@ class Almacen_Rutas {
     private:
 
 		map<string,Ruta> rutas;		/**< Identificadores y rutas */
+		multimap<Punto,string>puntos;
 
     public:
 
@@ -69,6 +70,20 @@ class Almacen_Rutas {
 		Ruta GetRuta(const string &identificador);
 
 		/**
+		 * @brief Get the Codigo object
+		 * 
+		 * @param ruta 
+		 * @return string 
+		 */
+		string GetCodigo(const Ruta & ruta)const;
+
+		/**
+		 * @brief Insertar un aruta en el Almacen de Rutas
+		 * 
+		 * @param ruta 
+		 */
+		void insertar(const Ruta & ruta);
+		/**
 		 * @brief Comprueba si el almacen de rutas esta vacio.
 		 * @return True (1) si el almacen de rutas esta vacio y False (0) si no lo esta.
 		 */
@@ -94,7 +109,14 @@ class Almacen_Rutas {
 		 * @brief Limpia el almacen de rutas totalmente, es decir, lo deja vacio.
 		 */
 		void Limpiar();
-
+		
+		/**
+		 * @brief Set the Ruta object
+		 * 
+		 * @param cad 
+		 * @param ruta 
+		 */
+		void SetRuta(const string cad, const Ruta &ruta);
 		/**
 		 * @brief Devuelve el numero de elementos del almacen de rutas.
 		 * @return Numero de elementos del almacen de rutas. 
@@ -276,22 +298,11 @@ class Almacen_Rutas {
         friend istream &operator>>(istream &is, Almacen_Rutas &Ar);
 
         friend ostream &operator<<(ostream &os, Almacen_Rutas &Ar);
+		
+			
+		
 };
 
-/**
- * @brief Operador de entrada. Lee un almacen de rutas.
- * @param is Flujo de entrada.
- * @param Ar Almacen de rutas a leer.
- * @return Flujo de entrada "is".
- */
-istream &operator>>(istream &is, Almacen_Rutas &Ar);
 
-/**
- * @brief Operador de salida. Muestra por pantalla un almacen de rutas.
- * @param os Flujo de salida.
- * @param Ar Almacen de rutas a mostrar.
- * @return Flujo de salida "os".
- */
-ostream &operator<<(ostream &os, Almacen_Rutas &Ar);
 
 #endif /* __ALMACEN_RUTAS__ */

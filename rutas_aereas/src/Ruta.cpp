@@ -5,17 +5,20 @@
   */
 
 #include "Ruta.h"
+
 #include <iterator>
 
 
 
 using namespace std;
 
-Ruta::Ruta(){
-    puntos.clear();
-    code=nullptr;
+
+
+Ruta::Ruta(const Ruta &R){
+    puntos=R.puntos; 
 
 }
+
 
 void Ruta::Insertar(const Punto &n){
 
@@ -23,29 +26,29 @@ void Ruta::Insertar(const Punto &n){
 
 }
 void Ruta::Borrar(const Punto & n){
-    list<Punto>::iterator i;
-    for(i=puntos.begin(); i!=puntos.end(); i++){
-        if(*i==n){
-            puntos.erase(i);
-        }
-    }
     
+    iterator it =find(n);
+     if (it!=end())
+        puntos.erase(it.p);
 }
 
 string Ruta::getCode()const{
     return code;
 }
 
+int Ruta::GetSize()const{return puntos.size();}
+
 void Ruta::setCode(const string &c){
     this->code=c;
 }
 
-bool Ruta::operator==(const Ruta & R )const{
-   return puntos==R.puntos;
+
+bool Ruta::operator!=(const Ruta & R )const{
+   return puntos != R.puntos;
     
 }
 bool Ruta::operator<(const Ruta & R )const{
-
+    bool salida;
     list<Punto>::const_iterator it;
     list<Punto>::const_iterator r;
     it=puntos.begin();
@@ -54,12 +57,22 @@ bool Ruta::operator<(const Ruta & R )const{
     //Suponemos que una ruta es menor que la otra si almenos un un punto es menor que el otro
     for(; it!=puntos.end() && r!=R.puntos.end(); it++){
 
-        if(*it<*r) return true;
+        if(*it<*r) salida= true;
 
     }
+    return salida;
 
 }
 
+//******************************************************//
+// Implementacion de la clase iterator dentro de paises // 
+//******************************************************//   
+
+
+
+Ruta::iterator::iterator(const Ruta::iterator &it) {
+	this->p = it.p;
+}
 Ruta::iterator &Ruta::iterator::operator++(){
     ++p;
     return *this;
@@ -81,6 +94,14 @@ bool Ruta::iterator::operator==(const Ruta::iterator &it){
 
 bool Ruta::iterator::operator!=(const Ruta::iterator &it){
     return !(it.p==p);
+}
+
+//************************************************************//
+// Implementacion de la clase const_iterator dentro de paises // 
+//************************************************************//  
+
+Ruta::const_iterator::const_iterator(const Ruta::const_iterator &it) {
+  this->p = it.p;
 }
 
 Ruta::const_iterator &Ruta::const_iterator::operator=(const Ruta::iterator &it){
@@ -142,6 +163,13 @@ Ruta::iterator Ruta::find(const Punto & p){
     
     
 }
+
+
+bool Ruta::operator==(const Ruta & R )const{
+    return puntos == R.puntos;
+}
+    
+
 
 istream &operator >>(istream &is, Ruta & R){
    Ruta aux;

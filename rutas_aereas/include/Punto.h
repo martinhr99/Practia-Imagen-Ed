@@ -9,6 +9,7 @@
 #define _Punto_
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -21,6 +22,7 @@ class Punto {
 
     double latitud;
     double longitud; 
+    string code;
 
     public:
 
@@ -35,7 +37,7 @@ class Punto {
      * @param log  Parámetro que hace referencia a la longitud de punto.
      * 
     */  
-    Punto(double lt, double log);
+    Punto(double lt, double log, string code);
 
     /**
      * @brief  Constructor de copia de la clase punto.
@@ -56,6 +58,14 @@ class Punto {
     double getLongitud() const;
 
     /**
+     * @brief Método consultor del codigo de un punro.
+     * @return Codigo del punro
+     * 
+     */
+    string getCode()const;
+    
+
+    /**
      * @brief Método modificador de la latitud del punto.
      * @param lt Latitud a modificar del punto.
     */
@@ -66,6 +76,13 @@ class Punto {
      * @param lg Longitud a modificar del punto.
     */
     void setLongitud(double lg);
+
+    /**
+     * @brief Método modificador del codigo del punto.
+     * @param cd Código a modicar.
+     */
+    
+    void setCode(string cd);
 
     /**
      * @brief Sobrecarga del operador relacional < en la clase punto.

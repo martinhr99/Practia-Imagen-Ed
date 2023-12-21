@@ -18,8 +18,17 @@ add_executable(pruebapegado ${BASE_FOLDER}/src/pruebapegado.cpp)
 target_link_libraries(pruebapegado LINK_PUBLIC image)
 endif()
 
+#if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/ruta_aerea.cpp)
+#add_executable(ruta_aerea ${BASE_FOLDER}/src/ruta_aerea.cpp)
+#target_link_libraries(ruta_aerea LINK_PUBLIC image)
+#endif()
+
 if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/ruta_aerea.cpp)
-add_executable(ruta_aerea ${BASE_FOLDER}/src/ruta_aerea.cpp)
+add_executable(ruta_aerea ${BASE_FOLDER}/src/ruta_aerea.cpp
+
+        ${BASE_FOLDER}/src/Paises.cpp ${BASE_FOLDER}/src/Almacen_Rutas.cpp
+         ${BASE_FOLDER}/src/Ruta.cpp  ${BASE_FOLDER}/src/Punto.cpp
+         ${BASE_FOLDER}/src/Pais.cpp )
 target_link_libraries(ruta_aerea LINK_PUBLIC image)
 endif()
 

@@ -8,11 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/martinhernandezruiz/Library/Mobile Documents/com~apple~CloudDocs/INGENIERIA INFORMÁTICA/SEGUNDO/ED/Rutas_Aereas-1/rutas_aereas/src/pruebarotacion.cpp" "CMakeFiles/pruebarotacion.dir/rutas_aereas/src/pruebarotacion.cpp.o" "gcc" "CMakeFiles/pruebarotacion.dir/rutas_aereas/src/pruebarotacion.cpp.o.d"
+  "/home/martinhdzruiz/Escritorio/Rutas_Aereas-1/rutas_aereas/src/pruebarotacion.cpp" "CMakeFiles/pruebarotacion.dir/rutas_aereas/src/pruebarotacion.cpp.o" "gcc" "CMakeFiles/pruebarotacion.dir/rutas_aereas/src/pruebarotacion.cpp.o.d"
   )
 
-# Targets to which this target links which contain Fortran sources.
-set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/martinhdzruiz/Escritorio/Rutas_Aereas-1/CMakeFiles/image.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
