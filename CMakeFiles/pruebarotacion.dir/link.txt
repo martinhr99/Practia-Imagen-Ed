@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/pruebarotacion.dir/rutas_aereas/src/pruebarotacion.cpp.o -o pruebarotacion  libimage.a 
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/pruebarotacion.dir/rutas_aereas/src/pruebarotacion.cpp.o -o pruebarotacion  libimage.a 

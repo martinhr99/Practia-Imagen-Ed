@@ -9,7 +9,7 @@
 
 #ifndef _PAISES_
 #define _PAISES_
-#include "Pais.h"
+#include "Pais copy.h"
 #include <set>
 #include <iostream>
 #include <iterator>
@@ -19,7 +19,7 @@ using namespace std;
 
 /**
  * @brief Clase Paises
- * @class Clase que implementa un contenedor para almacenar y gestionar datos de tipo Paises
+ * Clase que implementa un contenedor para almacenar y gestionar datos de tipo Paises
  * 
  */
 
@@ -49,7 +49,7 @@ class Paises{
         void Borrar(const Pais &P);
 
         /**
-         * @class Clase iterator implemnenta un interador (no constante) para recorrer paises. 
+         * @brief Clase iterator implemnenta un interador (no constante) para recorrer paises. 
         */
         class const_iterator;  
                          
@@ -102,7 +102,7 @@ class Paises{
         };  
 
          /**
-         * @class clase iterador constante implementada para recorrer paises.
+         * @brief clase iterador constante implementada para recorrer paises.
         */
         class const_iterator{
             private:

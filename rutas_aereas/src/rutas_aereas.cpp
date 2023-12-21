@@ -1,7 +1,8 @@
 
 #include "imagen.h"
-#include "Almacen_Rutas.h"
+#include "Almacen_Rutas_copy.h"
 #include "Paises.h"
+#include "Ruta.h"      //QUitar cuando se tenga ALmacen ruta
 #include <iostream>
 #include <cmath>
 #include <fstream>
@@ -156,7 +157,78 @@ int main(int argc, char * argv[]){
     Ruta R=Ar.GetRuta(a);
 
 
-  //COMPLETAR
+    Ruta::iterator it= R.begin();
+    Ruta::iterator it_anterior=R.begin();
+    Paises::iterator i_paises_anterior= Pses.end();
+    Paises::iterator i_paises= Pses.end();
+    Imagen bandera_inicio;
+    int posi_ini, posj_ini;
+
+    for (it=R.begin(); it!=R.end(); ++it){
+     
+      Punto punto=(*it);
+
+      i_paises_anterior=i_paises;
+      i_paises=Pses.find(punto);
+
+      string name=(*i_paises).GetBandera();
+      string n_com= argv[3]+name;
+
+      Imagen bandera;
+      bandera.LeerImagen(n_com.c_str(), "");
+
+      cout<<(*i_paises).GetPais()<<" ";
+
+      int x= (int)((I.num_cols()/360.0) * (180 + punto.getLongitud()));
+      int y= (int) ((I.num_filas()/180) * (90 - punto.getLatitud()));
+
+      if(i_paises_anterior != Pses.end()){
+
+        int x_old= (int)((I.num_cols()/360.0) * (180 + (*it_anterior).getLongitud()));
+        int y_old= (int) ((I.num_filas()/180) * (90 - (*it_anterior).getLatitud()));
+
+        int f1=y_old-avion.num_filas()/2;
+        int f2=y-avion.num_filas()/2;
+        int c1=x_old-avion.num_cols()/2;
+        int c2=x-avion.num_cols()/2;
+        int mindisf=50;       //Probar modificaciones 
+        int mindisc=50;       //Probar modificaciones
+        
+        Pintar(f1,f2,c1,c2, I, avion,mindisf, mindisc);
+      }
+
+      int posi = y-bandera.num_filas()/2;
+      int posj = x-bandera.num_cols()/2;
+      Tipo_Pegado tipo = BLENDING;
+      I.PutImagen(posi, posj, I, tipo);
+    
+      if(i_paises != Pses.begin() ){
+
+       posi = posi_ini-bandera_inicio.num_filas()/2;
+       posj = posj_ini-bandera_inicio.num_cols()/2;
+      Tipo_Pegado tipo = BLENDING;
+      I.PutImagen(posi, posj, I, tipo);
+      }
+
+      bandera_inicio=bandera;
+      posi_ini=y;
+      posj_ini=x;
+      it_anterior=it;
+    }
+      string nsal = a + ".ppm";
+      I.EscribirImagen(nsal.c_str());
+
+      cout<<endl;
+
+      
+    
+    
+    
+    
+    
+    
+   
+
     return 0;
 }
 

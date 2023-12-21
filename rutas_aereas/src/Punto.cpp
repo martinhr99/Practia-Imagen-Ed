@@ -17,15 +17,17 @@ Punto::Punto(){
     longitud=0;
     latitud=0;
 }
-Punto::Punto(double lt, double log){
+Punto::Punto(double lt, double log, string code){
     latitud=lt;
     longitud=log;
+    code=code;
 
 }
 
 Punto::Punto (const Punto &p){
     latitud=p.getLatitud();
     longitud=p.getLongitud();
+    code=p.getCode();
 }
 double Punto::getLatitud()const{
     return latitud;
@@ -38,6 +40,13 @@ void Punto::setLatitud(double lt){
 }
 void Punto::setLongitud(double lg){
     longitud=lg;
+}
+void Punto::setCode(string code){
+    this.code=code;
+}
+
+string Punto::getCode()const{
+    return code;
 }
 bool Punto::operator ==(const Punto&p)const{
     return ((this->getLatitud()== p.getLatitud()) && (this->getLongitud() == p.getLongitud()));

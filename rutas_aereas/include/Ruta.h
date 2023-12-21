@@ -16,7 +16,7 @@
 
 using namespace std;
 /**
- * @class Ruta
+ * 
  * @brief Clase Ruta: Representa una ruta en el mapa, lo cuál es basicamente un lista de puntos del mapa.
 */
 
@@ -73,7 +73,7 @@ class Ruta{
         bool operator<(const Ruta &R )const;
 
         /**
-         * @class Clase iterator implemnenta un interador (no constante) para recorrer una ruta. 
+         * @brief Clase iterator implemnenta un interador (no constante) para recorrer una ruta. 
         */
         class iterator{
             private:
@@ -127,7 +127,7 @@ class Ruta{
         };
         
         /**
-         * @class clase iterador constante implementada para recorrer una ruta.
+         * @brief clase iterador constante implementada para recorrer una ruta.
         */
         class const_iterator{
             private: 
