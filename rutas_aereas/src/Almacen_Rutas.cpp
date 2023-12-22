@@ -1,6 +1,6 @@
 /**
  * @file Almacen_Rutas.cpp
- * @author Juan Manuel Rodri­guez Gomez
+ * 
  */
 
 #include "Almacen_Rutas.h"
@@ -195,7 +195,7 @@ Almacen_Rutas::iterator Almacen_Rutas::find(Ruta &R) {
   iterator it;
   map<string,Ruta>::iterator i;
 
-  for(i = rutas.begin(); i != rutas.end() && !( (*i).second == R ); ++i);
+  for(i = rutas.begin(); i != rutas.end() && !( (*i).second == R ); ++i)
     it.vit = i;
   
   return it;

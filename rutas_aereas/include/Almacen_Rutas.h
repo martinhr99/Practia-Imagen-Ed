@@ -1,6 +1,6 @@
 /**
  * @file Almacen_Rutas.h
- * @author Juan Manuel Rodri­guez Gomez
+ * 
  */
 
 #ifndef __ALMACEN_RUTAS__

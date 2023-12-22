@@ -4,8 +4,7 @@
 #define _RUTA_AEREA_
 /**
  * @file ruta_aerea.cpp
- * @author Martín Hernnadez Ruiz
- * @brief 
+ * @author Martín Hernnadez Ruiz y Sergio Albacete Martín
  * @version 0.1
  * @date 2023-12-22
  * 
@@ -37,7 +36,7 @@ using namespace std;
 
 
 /** 
- * @mainpage
+ * 
  * @brief Obtiene una nueva imagen que es la versión rotada de una imagen de entrada
  * @param Io: imagen de entrada
  * @param angulo: angulo a rotar la imagen de entrada. Debe estar en radianes.
@@ -124,8 +123,7 @@ Imagen Rota(const Imagen & Io,double angulo){
 }
 
 /**
- * 
- * @mainpage
+ 
  * 
  * @brief Pinta imagenes de un avion encima de otra imagen.
  * @param f1 Fila inicial de la imagen sobre la cual se va a pintar el avion.
@@ -178,7 +176,7 @@ void Pintar( int f1,int f2,int c1,int c2,Imagen &I, const Imagen &avion,int mind
      
 }  
 /**
- * @mainpage
+ * 
  * @brief FUNCIÓN PRINCIPAL
  * @param argc 
  * @param argv Archivos .txt con la informacion de las rutas, paises y los .pgm o .ppm con las imágenes
@@ -271,14 +269,14 @@ int main(int argc, char * argv[]){
       int posi = y-bandera.num_filas()/2;
       int posj = x-bandera.num_cols()/2;
       
-      I.PutImagen(posi, posj, I, Tipo_Pegado::BLENDING);
+      I.PutImagen(posi, posj, bandera, Tipo_Pegado::BLENDING);
     
       if(i_paises != Pses.begin() ){
 
        posi = posi_ini-bandera_inicio.num_filas()/2;
        posj = posj_ini-bandera_inicio.num_cols()/2;
       
-      I.PutImagen(posi, posj, I, Tipo_Pegado::BLENDING);
+      I.PutImagen(posi, posj, bandera_inicio, Tipo_Pegado::BLENDING);
       }
 
       bandera_inicio=bandera;
