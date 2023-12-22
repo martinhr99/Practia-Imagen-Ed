@@ -385,8 +385,7 @@ CMakeFiles/ruta_aerea.dir/rutas_aereas/src/Pais.cpp.o: rutas_aereas/src/Pais.cpp
 CMakeFiles/ruta_aerea.dir/rutas_aereas/src/Paises.cpp.o: rutas_aereas/src/Paises.cpp \
   /usr/include/stdc-predef.h \
   rutas_aereas/include/Paises.h \
-  rutas_aereas/include/Pais\ copy.h \
-  rutas_aereas/include/Punto.h \
+  rutas_aereas/include/Pais.h \
   /usr/include/c++/12/iostream \
   /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \
   /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
@@ -565,6 +564,7 @@ CMakeFiles/ruta_aerea.dir/rutas_aereas/src/Paises.cpp.o: rutas_aereas/src/Paises
   /usr/include/c++/12/bits/ostream.tcc \
   /usr/include/c++/12/istream \
   /usr/include/c++/12/bits/istream.tcc \
+  rutas_aereas/include/Punto.h \
   /usr/include/c++/12/set \
   /usr/include/c++/12/bits/stl_tree.h \
   /usr/include/c++/12/ext/aligned_buffer.h \
@@ -1145,7 +1145,7 @@ CMakeFiles/ruta_aerea.dir/rutas_aereas/src/ruta_aerea.cpp.o: rutas_aereas/src/ru
   /usr/include/c++/12/bits/stl_multimap.h \
   /usr/include/c++/12/bits/erase_if.h \
   rutas_aereas/include/Paises.h \
-  rutas_aereas/include/Pais\ copy.h \
+  rutas_aereas/include/Pais.h \
   /usr/include/c++/12/set \
   /usr/include/c++/12/bits/stl_set.h \
   /usr/include/c++/12/bits/stl_multiset.h \
@@ -1190,8 +1190,6 @@ rutas_aereas/include/imagen.h:
 rutas_aereas/src/Ruta.cpp:
 
 /usr/include/c++/12/set:
-
-rutas_aereas/include/Pais\ copy.h:
 
 rutas_aereas/include/Paises.h:
 

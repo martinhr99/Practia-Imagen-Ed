@@ -9,7 +9,7 @@
 
 #ifndef _PAISES_
 #define _PAISES_
-#include "Pais copy.h"
+#include "Pais.h"
 #include <set>
 #include <iostream>
 #include <iterator>

@@ -1,4 +1,28 @@
 
+
+#ifndef _RUTA_AEREA_
+#define _RUTA_AEREA_
+/**
+ * @file ruta_aerea.cpp
+ * @author Martín Hernnadez Ruiz
+ * @brief 
+ * @version 0.1
+ * @date 2023-12-22
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+/**
+ *@include "imagen.h"
+  *@include "Almacen_Rutas.h"
+  *@include "Paises.h"
+  *@include <iostream>
+  *@include <cmath>
+  *@include <fstream>
+  *@include <iterator>
+ * 
+ */
 #include "imagen.h"
 #include "Almacen_Rutas.h"
 #include "Paises.h"
@@ -13,6 +37,7 @@ using namespace std;
 
 
 /** 
+ * @mainpage
  * @brief Obtiene una nueva imagen que es la versión rotada de una imagen de entrada
  * @param Io: imagen de entrada
  * @param angulo: angulo a rotar la imagen de entrada. Debe estar en radianes.
@@ -99,6 +124,9 @@ Imagen Rota(const Imagen & Io,double angulo){
 }
 
 /**
+ * 
+ * @mainpage
+ * 
  * @brief Pinta imagenes de un avion encima de otra imagen.
  * @param f1 Fila inicial de la imagen sobre la cual se va a pintar el avion.
  * @param f2 Fila final de la imagen sobre la cual se va a pintar el avion.
@@ -150,8 +178,8 @@ void Pintar( int f1,int f2,int c1,int c2,Imagen &I, const Imagen &avion,int mind
      
 }  
 /**
+ * @mainpage
  * @brief FUNCIÓN PRINCIPAL
- * 
  * @param argc 
  * @param argv Archivos .txt con la informacion de las rutas, paises y los .pgm o .ppm con las imágenes
  * @return int 
@@ -174,7 +202,7 @@ int main(int argc, char * argv[]){
     Paises Pses;
     ifstream f (argv[1]);
     f>>Pses;
-    //cout<<Pses;
+    cout<<Pses;
 
     Imagen I;
     I.LeerImagen(argv[2]);
@@ -193,6 +221,9 @@ int main(int argc, char * argv[]){
     cin>>a;
     Ruta R =Ar.GetRuta(a);
 
+    cout<<"rUTA:"<<endl;
+    cout<<R<<endl;
+    
     Ruta::iterator it_anterior, it;
     Paises::iterator i_paises_anterior = Pses.end();
     Paises::iterator i_paises=Pses.end();
@@ -205,10 +236,13 @@ int main(int argc, char * argv[]){
      
       Punto punto=(*it);
 
+      cout<<endl<<"Punto "<<punto;
+
       i_paises_anterior=i_paises;
       i_paises=Pses.find(punto);
 
       string name=(*i_paises).GetBandera();
+      cout<<endl<<name<<endl;
       string n_com= argv[3] + name;
 
       Imagen bandera;
@@ -265,3 +299,4 @@ int main(int argc, char * argv[]){
     return 0;
 }
 
+# endif

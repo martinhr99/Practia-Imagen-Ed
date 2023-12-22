@@ -1,1 +1,0 @@
-# Practia-Imagen-Ed

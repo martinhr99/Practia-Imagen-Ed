@@ -25,31 +25,6 @@ Almacen_Rutas::Almacen_Rutas(const Almacen_Rutas &Ar) : rutas( Ar.rutas.begin(),
 
 }
 
-
-Ruta Almacen_Rutas::GetRuta(const string &identificador) {
-  return rutas[identificador];
-}
-
-string Almacen_Rutas::GetCodigo(const Ruta &ruta)const{
-
-  map<string, Ruta>::const_iterator it;
-  bool encontrado = false;
-  string cad;
-  for(it = rutas.begin() ; it != rutas.end() && !encontrado; ++it){
-    if(it->second == ruta){
-      cad = it->first;
-    }
-    
-    encontrado = true;
-  }
-
-  return cad;
-}
-
-Ruta &Almacen_Rutas::operator[](const string &identificador) {
-   return rutas[identificador];
-}
-
 Almacen_Rutas &Almacen_Rutas::operator=(const Almacen_Rutas &Ar) {
 
     if(this != &Ar)
@@ -58,26 +33,13 @@ Almacen_Rutas &Almacen_Rutas::operator=(const Almacen_Rutas &Ar) {
     return *this;
 }
 
-void Almacen_Rutas::insertar(const Ruta & ruta)
-{
-    rutas[ruta.getCode()] = ruta;
-    Ruta::const_iterator it = ruta.cbegin();
-    pair <Punto, string> aux;
-    aux.second = ruta.getCode();
-
-    for(it ; it != ruta.cend() ; ++it){
-      aux.first = *it;
-      puntos.insert(aux);
-    }
-}
- 
-void Almacen_Rutas::SetRuta(const string cad, const Ruta &ruta){
-  map<string, Ruta>::iterator it;
-  it = rutas.find(cad);
-  if(it != rutas.end())rutas[cad] = ruta;
-
+Ruta &Almacen_Rutas::operator[](const string &identificador) {
+  return rutas[identificador];
 }
 
+Ruta Almacen_Rutas::GetRuta(const string &identificador) {
+  return rutas[identificador];
+}
 
 bool Almacen_Rutas::Vacio() {
   return rutas.empty();
@@ -267,7 +229,7 @@ ostream &operator<<(ostream &os, Almacen_Rutas &Ar) {
 	map<string,Ruta>::iterator it;
 
 	for(it = Ar.rutas.begin(); it != Ar.rutas.end(); ++it)
-		os << it->first << " " << it->second << endl<<endl;
+		os << it->first << " " << it->second << endl;
 
 	return os;
 }
