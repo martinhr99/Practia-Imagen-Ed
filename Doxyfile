@@ -1,6 +1,0 @@
-PROJECT_NAME           = "Práctica Final: Rutas Aereas"
-OUTPUT_DIRECTORY       = /home/martinhdzruiz/Escritorio/Rutas_Aereas-1/doc_doxygen/
-INPUT                  = /home/martinhdzruiz/Escritorio/Rutas_Aereas-1/rutas_aereas/include /home/martinhdzruiz/Escritorio/Rutas_Aereas-1/rutas_aereas/src /home/martinhdzruiz/Escritorio/Rutas_Aereas-1/rutas_aereas/doc
-GENERATE_LATEX         = NO
-IMAGE_PATH             = /home/martinhdzruiz/Escritorio/Rutas_Aereas-1/rutas_aereas/doc
-EXTRACT_PRIVATE        = NO
